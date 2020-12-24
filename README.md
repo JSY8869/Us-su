@@ -2,9 +2,9 @@
 ## 팀원 소개
 ### 정세영
 - 역할 : 팀장
-- 사용 가능 언어 : JAVA, JAVASCRIPT, C, C++, PYTHON, HTML, CSS
+- 사용 가능 언어 : JAVA, Javascript, C, C++, PYTHON, HTML, CSS
 - 개발환경 : Eclipse, VSCODE, Visual Studio
-- 희망 진로 : 프론트엔드 개발자
+- 희망 진로 : 웹 프론트엔드 개발자
 ### 이수혁
 - 역할 : 팀원
 - 사용 가능 언어 : python, c ,c++
