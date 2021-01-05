@@ -1,7 +1,6 @@
-# [한이음](https://www.hanium.or.kr/portal/hanium/mainOverview.do)
+# Us-su
+## [한이음](https://www.hanium.or.kr/portal/hanium/mainOverview.do)
 - 이 repository는 2021년 한이음 공모전을 준비하기 위한 repository입니다.
-## 팀명
-- `미정`
 ## 팀원 소개
 ### [정세영](https://github.com/JSY8869)
 - 역할 : 팀장
