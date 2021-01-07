@@ -1,4 +1,4 @@
-# Us-su
+# [Us-su](https://github.com/JSY8869/Us-su/issues/2#issuecomment-751324185)
 ## [한이음](https://www.hanium.or.kr/portal/hanium/mainOverview.do)
 - 이 repository는 2021년 한이음 공모전을 준비하기 위한 repository입니다.
 ## 팀원 소개
