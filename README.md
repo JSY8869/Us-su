@@ -2,7 +2,8 @@
 ## [한이음](https://www.hanium.or.kr/portal/hanium/mainOverview.do)
 - 이 repository는 2021년 한이음 공모전을 준비하기 위한 repository입니다.
 ## 팀원 소개
-### [정세영](https://github.com/JSY8869)
+### 정세영
+- github-name : [JSY8869](https://github.com/JSY8869)
 - 역할 : 팀장
 - 사용 가능 언어 : JAVA, Javascript, C, C++, PYTHON, HTML, CSS
 - 개발환경 : Eclipse, VSCODE, Visual Studio
