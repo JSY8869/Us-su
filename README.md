@@ -45,3 +45,5 @@
   - 의논하고 싶은 주제나 정보는 `Issue`를 활용
   - 매 주 1번 `meeting`을 가질 것
   - `Issue`나 `PR`은 72시간 내에 답을 줄 것
+  - `Issue`를 읽고 확인 및 이해가 된 경우 이모티콘을 남긴다.
+  - 매주 meeting이 끝난 후 48시간 내에 meeting issue에 review를 댓글로 남긴다
