@@ -46,4 +46,7 @@
   - 매 주 1번 `meeting`을 가질 것
   - `Issue`나 `PR`은 72시간 내에 답을 줄 것
   - `Issue`를 읽고 확인 및 이해가 된 경우 이모티콘을 남긴다.
-  - 매주 meeting이 끝난 후 48시간 내에 meeting issue에 review를 댓글로 남긴다
+  - 매주 meeting이 끝난 후 48시간 내에 meeting issue에 review를 댓글로 남긴다.
+- 아이디어 회의
+  - 매일 오후 9시~10시 Google meeting을 이용하여 아이디어 구상 시간을 가진다.
+  - 1시간의 meeting이 종료된 후 `issue`에 `review`를 통해 각자의 생각과 활동을 공유한다.
