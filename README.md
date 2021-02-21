@@ -10,14 +10,14 @@
 - 희망 진로 : 웹 프론트엔드 개발자
 ### 이수혁
 - 역할 : 팀원, 문장학습, 핵심어 추출 Algorithm
-- 사용 가능 언어 : python, c ,c++
+- 사용 가능 언어 : python, c, c++
 - 개발환경 : vscode, visual studio
 - 희망 진로 : 반도체 공정 엔지니어
 ### 박지수
 - 역할 : 팀원, UI
 - 사용 가능 언어 : python, C
 - 개발환경 : VSCODE, Visual Studio
-- 희망 진로 : 반도체/디스플레이 품질관리
+- 희망 진로 : 반도체 공정 엔지니어
 ### 박소현
 - 역할 : 팀원, GameDesign
 - 사용 가능 언어 : PYTHON, C
