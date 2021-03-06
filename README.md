@@ -5,8 +5,8 @@
 ### 정세영
 - github-name : [JSY8869](https://github.com/JSY8869)
 - 역할 : 팀장, 총괄
-- 사용 가능 언어 : JAVA, Javascript(React.js, JSX), C, C++, PYTHON, HTML, CSS
-- 개발환경 : Eclipse, VSCODE, Visual Studio
+- 사용 가능 언어 : JAVA, Javascript(React.js), C, C++, PYTHON, HTML, CSS, Kotlin
+- 개발환경 : Eclipse, VSCODE, Visual Studio, IntellijIDEA
 - 희망 진로 : 웹 프론트엔드 개발자
 ### 이수혁
 - 역할 : 팀원, 문장학습, 핵심어 추출 Algorithm
