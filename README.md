@@ -19,7 +19,7 @@
 - 개발환경 : VSCODE, Visual Studio
 - 희망 진로 : 반도체 공정 엔지니어
 ### 박소현
-- 역할 : 팀원, GameDesign
+- 역할 : 팀원, Server
 - 사용 가능 언어 : PYTHON, C
 - 개발환경 : Visual Studio, VSCODE
 - 희망 진로 : 반도체 공정 엔지니어
