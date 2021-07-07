@@ -44,6 +44,8 @@
 - 개발!
 ## 주제
 ### [치매예방 프로그램](https://github.com/JSY8869/Us-su/issues/1#issuecomment-778320256)
+### 구성도
+![구성도](https://user-images.githubusercontent.com/65009713/124792197-c1353200-df87-11eb-89ea-7e3ca9a41524.PNG)
 # Manual
 - 모든 개발은 `Develop` 폴더에서 진행한다.
   - 각자 작업은 닉네임 폴더 만들어서 할 것(ex: JSY8869)
