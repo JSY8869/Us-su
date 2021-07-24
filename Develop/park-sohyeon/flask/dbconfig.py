@@ -9,12 +9,11 @@ db= pymysql.connect(host='localhost',
 
 db.cursor().execute("show tables")
 sql = """INSERT INTO test_table(name)
-         VALUES('test_name');"""
+         VALUES('test_name')"""
  
 db.cursor().execute(sql)
 db.commit()
  
 sql= """SELECT name FROM test_table"""
-print(db.cursor().execute(sql))
 
 db.close()

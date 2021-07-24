@@ -11,11 +11,15 @@ from sqlalchemy.sql.expression import outerjoin, select, table
 
 
 app = Flask(__name__)
-
+username="root"
+password = "0cN1KvzzVeQuO7xc7fmt"
+host = "localhost"
+db_name = "test"
+db_path = "mysql+pymysql://{}:{}@{}:3306/{}?charset=utf8".format(username, password, host, db_name)
 def create_app(test_config = None):
         
     app.config.from_pyfile('dbconfig.py')
-    database = create_engine(app.config['DB_URL'], encoding = 'utf-8')
+    database = create_engine(db_path, encoding = 'utf-8')
     app.database = database
 
     return app
@@ -29,8 +33,6 @@ def create_app(test_config = None):
 #     duration = db.Column(db.Integer, nullable=False)    
 
 
-
-
 @app.route('/', methods = ['GET'])
 def home():
     return "home"
@@ -40,40 +42,49 @@ def add():
     create_app()
 
     user = request.json
-    print(request.jason)
     user_info = app.database.execute(text("""
                                         INSERT INTO member (
                                         member_id,
+                                        member_password,
                                         member_name,
                                         score
                                        ) VALUES (
                                         :member_id,
-                                        :member_name,
+                                        :member_password,
                                         :score
                                        )
                                         """), user).lastrowid
 
     return "success", 200
 
-@app.route('/diary', methods = ['POST'])
+@app.route('/diary', methods = ['POST','GET'])
 def diary():
     create_app()
-    
-
-    user = request.json
-
+    created_at="hi"
     user_diary = app.database.execute(text("""
-                                        INSERT INTO diary (
-                                        member_id,
-                                        created_at,
-                                        text
-                                       ) VALUES (
-                                        :member_id,
-                                        :created_at,
-                                        :text
-                                       )
-                                        """), user).lastrowid
-    return "success", 200
+                                        INSERT INTO diary (created_at,member_id,text)
+                                        VALUES (created_at,member_id,text)
+                                    """), request.json).lastrowid
+    row = app.database.execute(text("""			# 1)
+        SELECT
+            created_at
+        FROM test.diary
+    """), {
+        	'created_at' : created_at
+        }).fetchall()
+        
+    timeline = [{							# 2)
+        'created_at' : rows['created_at']
+    } for rows in row]
+    
+    return jsonify({						# 3)
+        'created_at' : created_at
+    })
+
+
+
+
+
 
 # conn = pymysql.connect()
 # temp = list()
@@ -88,9 +99,5 @@ def diary():
 # outerjoin(diary, member.member_id == diary.member_id).__module__
 # all()
 
-@app.errorhandler(500)
-def pageNotFound(error):
-    return "Server Error"
-
 if __name__== '__main__': # 모델로드
-    app.run(host='127.0.0.1', port='5000', debug = True)
+    app.run(host='192.168.0.104', port='8080', debug = True)
