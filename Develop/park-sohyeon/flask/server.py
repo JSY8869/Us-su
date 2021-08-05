@@ -1,6 +1,8 @@
 from flask import Flask, request
 from sqlalchemy import create_engine, text
 from diary import Diary
+from member import User
+
 app = Flask(__name__)
 username="root"
 password = "0cN1KvzzVeQuO7xc7fmt"
@@ -57,5 +59,9 @@ def diary_U():
 def diary_D():
     return Diary.delete(create_app())
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    return User.login(create_app())
+
 if __name__== '__main__': # 모델로드
-    app.run(host='172.16.196.40', port='8080', debug = True)
+    app.run(host='192.168.0.114', port='8080', debug = True)
