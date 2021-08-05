@@ -1,9 +1,8 @@
 from flask import Flask, request
 from sqlalchemy import create_engine, text
-from diary.Read_Diary import R_diary 
-from diary.Create_Diary import C_diary 
-from diary.Delete_Diary import D_diary 
-from diary.Update_Diary import U_diary
+from diary import Diary
+from member import User
+
 app = Flask(__name__)
 username="root"
 password = "0cN1KvzzVeQuO7xc7fmt"
@@ -45,20 +44,24 @@ def add():
 @app.route('/diary/Read', methods = ['GET'])
 def diary_R():
     result = create_app()
-    return R_diary(result)
+    return Diary.read(result)
 
 @app.route('/diary/Create', methods = ['GET'])
 def diary_C():
-    return C_diary(create_app())
+    return Diary.create(create_app())
 
 @app.route('/diary/Update', methods = ['GET'])
 def diary_U():
     result = create_app()
-    return U_diary(result)
+    return Diary.update(result)
 
 @app.route('/diary/Delete', methods = ['GET']) # 다 삭제됨
 def diary_D():
-    return D_diary(create_app())
+    return Diary.delete(create_app())
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    return User.login(create_app())
 
 if __name__== '__main__': # 모델로드
-    app.run(host='172.16.196.40', port='8080', debug = True)
+    app.run(host='192.168.0.114', port='8080', debug = True)
