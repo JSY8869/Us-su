@@ -42,20 +42,20 @@ def add():
 @app.route('/diary/Read', methods = ['GET'])
 def diary_R():
     result = create_app()
-    return Diary.R_diary(result)
+    return Diary.read(result)
 
 @app.route('/diary/Create', methods = ['GET'])
 def diary_C():
-    return Diary.C_diary(create_app())
+    return Diary.create(create_app())
 
 @app.route('/diary/Update', methods = ['GET'])
 def diary_U():
     result = create_app()
-    return Diary.U_diary(result)
+    return Diary.update(result)
 
 @app.route('/diary/Delete', methods = ['GET']) # 다 삭제됨
 def diary_D():
-    return Diary.D_diary(create_app())
+    return Diary.delete(create_app())
 
 if __name__== '__main__': # 모델로드
     app.run(host='172.16.196.40', port='8080', debug = True)

@@ -5,7 +5,7 @@ class Diary():
     def __init__(self):
         return
 
-    def C_diary(self, app):
+    def create(self, app):
         userdiary = {"member_id":12, "created_at":'hi',"text":'hh'}
         app.database.execute(text("""
                         INSERT INTO diary (
@@ -20,7 +20,7 @@ class Diary():
                         """),userdiary).lastrowid
         return "success"
 
-    def D_diary(self, app):
+    def delete(self, app):
         userdiary = {"member_id":12, "created_at":'hi'}
         app.database.execute(text("""
             Delete FROM diary WHERE member_id=member_id and created_at=created_at
@@ -28,7 +28,7 @@ class Diary():
         ).lastrowid
         return "success"
     
-    def R_diary(self, app):
+    def read(self, app):
         userdiary = {"member_id":12, "created_at":'hi'}
         print(userdiary)
         row = app.database.execute(text("""
@@ -37,7 +37,7 @@ class Diary():
         ).fetchone()
         return (row[0])
 
-    def U_diary(self, app):
+    def update(self, app):
         userdiary = {"member_id":12, "created_at":'hi',"text":'hh'}
         app.database.execute(text("""
                         Update diary
