@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>main.html</title>
+</head>
+
+<body>
+    {% if session.get('logFlag') %}
+        member_id : {{ session['member_id']}}
+        | <a href="/logout">logout</a>
+    {% else %}
+        <a href="/login_form">login_form</a>
+
+    {% endif %}
+    </body>
+</html>
