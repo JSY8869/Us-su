@@ -105,7 +105,7 @@ def login_proc():
                 else:
                     return redirect(url_for('login_form'))
     else:
-        return '잘 못 박 소 현'
+        return '값을 잘못 입력했습니다'
 
 @app.route('/logout')
 def logout():
@@ -115,4 +115,4 @@ def logout():
 if __name__== '__main__': # 모델로드
     app.secret_key = 'super secret key'
     app.config['SESSION_TYPE'] = 'filesystem'
-    app.run(host='192.168.0.113', port='8080', debug = True)
+    app.run(host='192.168.0.104', port='8080', debug = True)
