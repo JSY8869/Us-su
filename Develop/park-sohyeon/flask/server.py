@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 from sqlalchemy import create_engine
 from diary import Diary
 from member import Member
+from flask_wtf.csrf import CSRFProtect
 
 
 app = Flask(__name__)
@@ -42,9 +43,10 @@ def diary_D():
 def member_create():
     return Member.register(create_app())
 
-@app.route('/login_proc', methods=['POST'])
+@app.route('/login/Read', methods=['GET'])
 def login():
     return Member.login_proc(create_app())
+    
 @app.route('/logout')
 
 @app.route('/main')
@@ -55,4 +57,4 @@ def main():
 if __name__== '__main__': # 모델로드
     app.secret_key = 'super secret key'
     app.config['SESSION_TYPE'] = 'filesystem'
-    app.run(host='192.168.0.104', port='8080', debug = True)
+    app.run(host='192.168.0.107', port='8080', debug = True)

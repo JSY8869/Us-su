@@ -17,3 +17,4 @@ db.commit()
 sql= """SELECT name FROM test_table"""
 
 db.close()
+
