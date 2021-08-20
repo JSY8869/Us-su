@@ -6,7 +6,7 @@ class Diary():
     def __init__(self):
         return
 
-    def create(self, app):
+    def create(app):
         userdiary = request.json
         app.database.execute(text("""
                         INSERT INTO diary (
@@ -21,15 +21,15 @@ class Diary():
                         """),userdiary).lastrowid
         return "success"
 
-    def delete(self, app):
+    def delete(app):
         userdiary = request.json
         app.database.execute(text("""
-            Delete FROM diary WHERE member_id=member_id and created_at=created_at
+            Delete FROM diary WHERE member_id= :member_id and created_at= :created_at
         """),userdiary
         ).lastrowid
         return "success"
     
-    def read(self, app):
+    def read(app):
         userdiary = request.json
         print(userdiary)
         row = app.database.execute(text("""
@@ -38,11 +38,11 @@ class Diary():
         ).fetchone()
         return (row[0])
 
-    def update(self, app):
+    def update(app):
         userdiary = request.json
         app.database.execute(text("""
                         Update diary
-                        SET text='213123'
+                        SET text= :text
                         Where member_id=member_id and created_at=created_at
                         """),userdiary).lastrowid
         return "success"
