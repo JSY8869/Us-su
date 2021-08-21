@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, request
 from sqlalchemy import create_engine
 from diary import Diary
 from member import Member
@@ -23,19 +23,20 @@ def create_app(test_config = None):
 def home():
     return "home"
 
-@app.route('/diary/Read', methods = ['GET'])
+@app.route('/diary/Read', methods = ['POST','GET'])
 def diary_R():
     return Diary.read(create_app())
 
 @app.route('/diary/Create', methods = ['POST','GET'])
 def diary_C():
-    return Diary.create(create_app())
+    return Diary.diary_check(create_app())
+    
 
-@app.route('/diary/Update', methods = ['GET'])
+@app.route('/diary/Update', methods = ['GET','POST'])
 def diary_U():
-    return Diary.update(create_app())
+    return Diary.diary_check(create_app())
 
-@app.route('/diary/Delete', methods = ['POST']) # 다 삭제됨
+@app.route('/diary/Delete', methods = ['POST'])
 def diary_D():
     return Diary.delete(create_app())
 
