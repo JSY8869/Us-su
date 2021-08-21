@@ -1,9 +1,8 @@
-from flask import Flask, request
+from flask import Flask
 from sqlalchemy import create_engine
-from diary import Diary
-from member import Member
-from flask_wtf.csrf import CSRFProtect
-from game import gamee
+from server_src.diary import Diary
+from server_src.member import Member
+from server_src.game import gamee
 
 app = Flask(__name__)
 username="root"
@@ -18,28 +17,25 @@ def create_app(test_config = None):
 
     return app
 
-
-@app.route('/', methods = ['GET'])
-def home():
-    return "home"
-
-@app.route('/diary/Read', methods = ['POST','GET'])
+# -------------------------Diary--------------------------------
+@app.route('/diary/Read', methods = ['POST','GET']) # 일기 불러오기
 def diary_R():
     return Diary.read(create_app())
 
-@app.route('/diary/Create', methods = ['POST','GET'])
+@app.route('/diary/Create', methods = ['POST','GET']) # 일기 작성
+@app.route('/diary/Update', methods = ['POST','GET']) # 일기 수정
 def diary_C():
-    return Diary.diary_check(create_app())
-    
+    if Diary.diary_check(create_app()) == True:
+        return Diary.update(create_app())
+    else: 
+        return Diary.create(create_app())
 
-@app.route('/diary/Update', methods = ['GET','POST'])
-def diary_U():
-    return Diary.diary_check(create_app())
-
-@app.route('/diary/Delete', methods = ['POST'])
+@app.route('/diary/Delete', methods = ['POST']) # 일기 삭제
 def diary_D():
     return Diary.delete(create_app())
 
+
+# -------------------------Member--------------------------------
 @app.route('/login/Create', methods = ['POST','GET'])
 def member_create():
     return Member.register(create_app())
@@ -47,7 +43,9 @@ def member_create():
 @app.route('/login/Read', methods=['POST','GET'])
 def login():
     return Member.login_proc(create_app())
-    
+
+
+# -------------------------Game--------------------------------
 @app.route('/diary/Game', methods=['POST','GET'])
 def game_q():
     return gamee(create_app())
