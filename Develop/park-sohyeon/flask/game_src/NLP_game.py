@@ -1,4 +1,5 @@
 from eunjeon import Mecab
+import random
 
 def NLP(sentences):
     m = Mecab()
@@ -7,12 +8,9 @@ def NLP(sentences):
     final_num = [] #문장 내 모든 마침표들의 위치를 구함
 
     for i in range(len(m.morphs(sentences))) :
-        if m.morphs(sentences)[i] == '.' :
+        if m.morphs(sentences)[i] == '.' or '?' or '!' :
             final_num.append(i)
-        elif m.morphs(sentences)[i] == '?' :
-            final_num.append(i)
-        elif m.morphs(sentences)[i] == '!' :
-            final_num.append(i)
+
     all_input_sentences = [] #마침표를 기준으로 입력받은 문장을 나눔
     for j in range(len(final_num)):
         if j == 0 :
@@ -29,53 +27,24 @@ def NLP(sentences):
     for l in range(len(all_input_sentences)) :
         if '.' in all_input_sentences[l] :#all_input_sentences에서 온점으로 끝나는 문장만 dot_input_sentences에 저장한다.
             dot_input_sentences.append(all_input_sentences[l])
-        else : 
-            pass
     #입력받은 문장들 중에서 평서문만 추출
     important_sentences = []#평서문 들 중 NNG, NNP, NP와 같은 품사를 가지는 단어들을 추출한 리스트
     Str_dot_sentences = []#리스트화 되어있는 문자열들을 띄어쓰기 없이 하나의 문자열로 변환
 
-    #입력받은 문장들 중에서 추출된 N개의 평서문들 중, 랜덤으로 한개의 문장을 선택
-    import random
-
     random_dot_input_sentences = random.sample(dot_input_sentences, 1)
     #온점으로 끝나는 문장들 중 랜덤으로 1개를 선택
 
-    for letter in range(len(random_dot_input_sentences)):#추출한 평서문의 개수만큼 roop
+    for letter in range(len(random_dot_input_sentences)): #추출한 평서문의 개수만큼 roop
         Str_dot_sentences = ''.join(random_dot_input_sentences[letter])
 
         for num in range(len(random_dot_input_sentences[letter])):#추출한 평서문 내 첫번째 리스트에 있는 문장의 길이만큼 roop
-            if 'NNG' in m.pos(Str_dot_sentences)[num][1] :
+            if 'NNG' or 'NNP' or 'NP' in m.pos(Str_dot_sentences)[num][1] :
                 important_sentences.append(random_dot_input_sentences[letter][num])
 
-            elif 'NNP' in m.pos(Str_dot_sentences)[num][1] :
-                important_sentences.append(random_dot_input_sentences[letter][num])
-
-            # elif 'NNB' in m.pos(Str_dot_sentences[letter][num])[0][1] : #따위, 뿐 등
-            #     print(Str_dot_sentences[letter][num])
-
-            # elif 'NR' in m.pos(Str_dot_sentences[letter][num])[0][1] :  #하나, 둘 셋 등
-            #     print(Str_dot_sentences[letter][num])
-
-            elif 'NP' in m.pos(Str_dot_sentences)[num][1] :
-                important_sentences.append(random_dot_input_sentences[letter][num])
-
-            else :
-                pass
-
-    if '오늘' in important_sentences :
-        important_sentences.remove('오늘')
-    elif '어제' in important_sentences :
-        important_sentences.remove('어제')
-    elif '내일' in important_sentences :
-        important_sentences.remove('내일')
-    elif '그저께' in important_sentences :
-        important_sentences.remove('그저께')
-    elif '모레' in important_sentences :
-        important_sentences.remove('모레')
-    elif '나' in important_sentences :
-        important_sentences.remove('나')
-    #입력받은 평서문들 중 명사형 체언만 추출 -> 퀴즈 낼때 빈칸이 됨
+    remove_list = ['어제', '오늘', '내일', '그저께', '모레', '나']
+    for remove_word in remove_list:
+        if remove_word in important_sentences :
+            important_sentences.remove(remove_word)
     index_important_sentences = []
     answer_sentences = []#빈칸에 들어갈 핵심용어가 저장되어 있는 list
     #NP, NNP, NNG 품사들 중 랜덤으로 선택된 핵심용어의 index가 저장되는 list
