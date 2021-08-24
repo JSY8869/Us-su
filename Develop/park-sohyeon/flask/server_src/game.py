@@ -12,3 +12,24 @@ def gamee(app):
                 return json.dumps({'member_id':request.json['member_id'], 'created_at':request.json['created_at'], 'question':question, 'answer':answer})
         else:
                 return 'error'
+
+def game_db(app):
+        row = app.database.execute(text("""
+                                SELECT text FROM diary 
+                                WHERE member_id= :member_id and created_at= :created_at
+                                """),request.json).fetchone()
+        if Diary.diary_check:
+                sentences = NLP_game.NLP.sentence_extraction(row[0])
+                row = app.database.execute(text("""
+                                SELECT game_text FROM game 
+                                WHERE game_text = :sentences
+                                """),sentences).fetchone()
+                if row[0] == None:
+                        app.database.execute(text("""
+                                INSERT INTO game (game_text)
+                                VALUES (:game_text)
+                                """),sentences).fetchone()
+                else:
+                        return json.dumps({'member_id':request.json['member_id'], 'created_at':request.json['created_at'], 'question':'h', 'answer':row[0]})
+        else:
+                return 'error'
