@@ -52,7 +52,6 @@ class NLP:
                 elif 'NP' in m.pos(Str_dot_sentences)[num][1] :
                     important_sentences.append(random_dot_input_sentences[letter][num])
 
-
                 else :
                     pass
 
@@ -76,5 +75,3 @@ class NLP:
         #추출된 핵심용어를 빈칸으로 대체
 
         return(' '.join(random_dot_input_sentences[0]), answer_sentences)
-teeee, _ = NLP.make_important_senteces("나는 어제 박소현과 운동을 먹었다.")
-print(teeee)

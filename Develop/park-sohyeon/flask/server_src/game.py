@@ -8,7 +8,7 @@ def gamee(app):
                                 WHERE member_id= :member_id and created_at= :created_at
                                 """),request.json).fetchone()
         if Diary.diary_check:
-                question, answer = NLP_game.NLP(row[0])
+                question, answer = NLP_game.NLP.make_qa(row[0])
                 return json.dumps({'member_id':request.json['member_id'], 'created_at':request.json['created_at'], 'question':question, 'answer':answer})
         else:
                 return 'error'
@@ -18,18 +18,26 @@ def game_db(app):
                                 SELECT text FROM diary 
                                 WHERE member_id= :member_id and created_at= :created_at
                                 """),request.json).fetchone()
-        if Diary.diary_check:
-                sentences = NLP_game.NLP.sentence_extraction(row[0])
+        if row != None:
+                sentences, _ = NLP_game.NLP.make_important_senteces(row[0])
+                game_text = {'game_text':sentences[1]}
                 row = app.database.execute(text("""
                                 SELECT game_text FROM game 
-                                WHERE game_text = :sentences
-                                """),sentences).fetchone()
-                if row[0] == None:
-                        app.database.execute(text("""
-                                INSERT INTO game (game_text)
-                                VALUES (:game_text)
-                                """),sentences).fetchone()
-                else:
+                                WHERE game_text = :game_text
+                                """),game_text).fetchone()
+                if row != None:
                         return json.dumps({'member_id':request.json['member_id'], 'created_at':request.json['created_at'], 'question':'h', 'answer':row[0]})
+                else:
+                        row = app.database.execute(text("""
+                                SELECT game_text FROM game 
+                                """)).fetchall()
+                        return json.dumps({'member_id':request.json['member_id'], 'created_at':request.json['created_at'], 'question':'h', 'answer':99, 'game_text':sentences[1]})
         else:
                 return 'error'
+
+def plus_word(app):
+        app.database.execute(text("""
+                        INSERT INTO game (game_text)
+                        VALUES (:game_text)
+                        """),request.json).lastrowid
+        return request.json
