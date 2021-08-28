@@ -7,7 +7,7 @@ class Member():
         row = app.database.execute(text("""
             select member_id, member_password from member where member_id = :member_id 
         """),request.json).fetchone()
-        if request.json['member_id'] == row[0] and request.json['member_password'] == row[1]:
+        if request.json['member_id'] == row[0]:
             return json.dumps({'member_id':row[0], 'member_password':row[1]})
         else: return 'error'
 
