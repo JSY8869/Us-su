@@ -11,9 +11,10 @@ class Diary():
         else: return(True)
 
     def create(app):
+        print(request.json)
         app.database.execute(text("""
-                            INSERT INTO diary (created_at, member_id, text)
-                            VALUES (:created_at, :member_id, :text)
+                            INSERT INTO diary (created_at, member_id, text, score_ox)
+                            VALUES (:created_at, :member_id, :text, :score_ox)
                             """),request.json).lastrowid
         return json.dumps({'member_id':request.json['member_id'], 'created_at':request.json['created_at'], 'text':request.json['text']})
     

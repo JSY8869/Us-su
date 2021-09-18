@@ -2,7 +2,7 @@ from flask import Flask
 from sqlalchemy import create_engine
 from server_src.diary import Diary
 from server_src.member import Member
-from server_src.game import gamee, game_db, plus_word
+from server_src.game import gamee, game_db, plus_word, Update_Game_Score
 
 app = Flask(__name__)
 username="root"
@@ -57,8 +57,12 @@ def game_q2():
 @app.route('/game', methods=['POST','GET'])
 def game_plus_word():
     return plus_word(create_app())
-    
-if __name__== '__main__': # 모델로드
+
+@app.route('/game/score', methods=['POST','GET'])
+def game_score1():
+    return Update_Game_Score(create_app())
+
+if __name__== '__main__': # 모듈로드
     app.secret_key = 'super secret key'
     app.config['SESSION_TYPE'] = 'filesystem'
     app.run(host='192.168.0.104', port='8080', debug = True)

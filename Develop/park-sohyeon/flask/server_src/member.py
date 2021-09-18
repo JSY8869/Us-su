@@ -19,7 +19,7 @@ class Member():
         if (member_id_cor != None): return "error"
         else:
             app.database.execute(text("""
-                                INSERT INTO member (member_id, member_password)
-                                VALUES (:member_id, :member_password)
+                                INSERT INTO member (member_id, member_password, score)
+                                VALUES (:member_id, :member_password, :score)
                                 """), request.json).lastrowid
             return request.json
