@@ -1,7 +1,7 @@
 from eunjeon import Mecab
 import random
 
-class NLP:
+class NLP1:
     def sentence_extraction(sentences, m):
         # m.morphs(sentences)
         m.pos(sentences) #문장 내 모든 단어의 품사를 구함
@@ -39,8 +39,10 @@ class NLP:
         random_dot_input_sentences = random.sample(NLP.sentence_extraction(sentences, m), 1)
         important_sentences = []#평서문 들 중 NNG, NNP, NP와 같은 품사를 가지는 단어들을 추출한 리스트
         Str_dot_sentences = []#리스트화 되어있는 문자열들을 띄어쓰기 없이 하나의 문자열로 변환
+        print(random_dot_input_sentences)
         for letter in range(len(random_dot_input_sentences)):#추출한 평서문의 개수만큼 roop
             Str_dot_sentences = ''.join(random_dot_input_sentences[letter])
+            print(Str_dot_sentences)
 
             for num in range(len(random_dot_input_sentences[letter])):#추출한 평서문 내 첫번째 리스트에 있는 문장의 길이만큼 roop
                 if 'NNG' in m.pos(Str_dot_sentences)[num][1] :
@@ -75,3 +77,6 @@ class NLP:
         #추출된 핵심용어를 빈칸으로 대체
 
         return(' '.join(random_dot_input_sentences[0]), answer_sentences)
+
+if __name__ == '__main__':
+    print(NLP.make_important_senteces("오늘은 집에 갔다, 그리고 밥을 먹었다."))
