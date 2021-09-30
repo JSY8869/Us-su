@@ -36,7 +36,7 @@ class NLP1:
         #온점으로 끝나는 문장들 중 랜덤으로 1개를 선택
     def make_important_senteces(sentences):
         m = Mecab()
-        random_dot_input_sentences = random.sample(NLP.sentence_extraction(sentences, m), 1)
+        random_dot_input_sentences = random.sample(NLP1.sentence_extraction(sentences, m), 1)
         important_sentences = []#평서문 들 중 NNG, NNP, NP와 같은 품사를 가지는 단어들을 추출한 리스트
         Str_dot_sentences = []#리스트화 되어있는 문자열들을 띄어쓰기 없이 하나의 문자열로 변환
         print(random_dot_input_sentences)
@@ -64,7 +64,7 @@ class NLP1:
         return important_sentences, random_dot_input_sentences
     
     def make_qa(senteces):
-        important_sentences, random_dot_input_sentences = NLP.make_important_senteces(senteces)
+        important_sentences, random_dot_input_sentences = NLP1.make_important_senteces(senteces)
         index_important_sentences = []
         answer_sentences = []#빈칸에 들어갈 핵심용어가 저장되어 있는 list
         #NP, NNP, NNG 품사들 중 랜덤으로 선택된 핵심용어의 index가 저장되는 list
