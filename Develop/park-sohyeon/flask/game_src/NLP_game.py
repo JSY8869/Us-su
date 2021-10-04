@@ -28,21 +28,19 @@ class NLP1:
         dot_input_sentences = [] #온점만 있는 문장들을 모아놓는 리스트
 
         for l in range(len(all_input_sentences)) :
-            if '.' in all_input_sentences[l] :#all_input_sentences에서 온점으로 끝나는 문장만 dot_input_sentences에 저장한다.
+            if '.' or '!' in all_input_sentences[l] :#all_input_sentences에서 온점과 느낌표로 끝나는 문장만 dot_input_sentences에 저장한다.
                 dot_input_sentences.append(all_input_sentences[l])
         #입력받은 문장들 중에서 평서문만 추출
 
         return dot_input_sentences
-        #온점으로 끝나는 문장들 중 랜덤으로 1개를 선택
+
     def make_important_senteces(sentences):
         m = Mecab()
         random_dot_input_sentences = random.sample(NLP1.sentence_extraction(sentences, m), 1)
         important_sentences = []#평서문 들 중 NNG, NNP, NP와 같은 품사를 가지는 단어들을 추출한 리스트
         Str_dot_sentences = []#리스트화 되어있는 문자열들을 띄어쓰기 없이 하나의 문자열로 변환
-        print(random_dot_input_sentences)
         for letter in range(len(random_dot_input_sentences)):#추출한 평서문의 개수만큼 roop
             Str_dot_sentences = ''.join(random_dot_input_sentences[letter])
-            print(Str_dot_sentences)
 
             for num in range(len(random_dot_input_sentences[letter])):#추출한 평서문 내 첫번째 리스트에 있는 문장의 길이만큼 roop
                 if 'NNG' in m.pos(Str_dot_sentences)[num][1] :
@@ -57,7 +55,7 @@ class NLP1:
                 else :
                     pass
 
-        remove_list = ['어제', '오늘', '내일', '그저께', '모레', '나']
+        remove_list = ['어제', '오늘', '내일', '그저께', '모레', '나', '어저께', '은']
         for remove_word in remove_list:
             if remove_word in important_sentences :
                 important_sentences.remove(remove_word)
@@ -77,6 +75,3 @@ class NLP1:
         #추출된 핵심용어를 빈칸으로 대체
 
         return(' '.join(random_dot_input_sentences[0]), answer_sentences)
-
-if __name__ == '__main__':
-    print(NLP.make_important_senteces("오늘은 집에 갔다, 그리고 밥을 먹었다."))

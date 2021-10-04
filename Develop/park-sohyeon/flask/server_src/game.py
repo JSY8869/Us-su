@@ -2,7 +2,6 @@ from flask import request, json
 from sqlalchemy import text
 from game_src import NLP_game
 from game_src import NLP_game2
-from server_src.diary import Diary
 def game_1(app): # 게임 1 실행 코드
         try:
                 row = app.database.execute(text("""
@@ -25,7 +24,7 @@ def game_2(app): # 게임 2 실행 코드
                                 """),request.json).fetchall()
         
         if row != None:
-                if row[0][1] == 1:
+                if row[0][1] == 1: # 게임을 이미 진행한 경우
                         return json.dumps({'member_id':request.json['member_id'], 'created_at':request.json['created_at'], 'question':'h', 'answer':'1', 'score':0, 'score_ox2':1} )
                 try:
                         important_words = NLP_game2.NLP2.make_important_word(row[0][0])
@@ -40,8 +39,6 @@ def game_2(app): # 게임 2 실행 코드
                         row_string = ""
                         for i in range(len(row)):
                                 row_string += ''.join(row[i])+' '
-                        print(row_string)
-                        print(important_words)
                         if row_string != "":
                                 return json.dumps({'member_id':request.json['member_id'], 'created_at':request.json['created_at'], 'question':'h', 'answer':row_string, 'score':Read_Game_Score(app), 'score_ox2':0} )
                         else:

@@ -1,5 +1,4 @@
 from eunjeon import Mecab
-import random
 
 class NLP2:
     def make_important_word(sentences):
@@ -23,11 +22,8 @@ class NLP2:
                 else :
                     pass
 
-        remove_list = ['어제', '오늘', '내일', '그저께', '모레', '나', '은']
+        remove_list = ['어제', '오늘', '내일', '그저께', '모레', '나', '은', '어저께']
         for remove_word in remove_list:
             if remove_word in important_sentences :
                 important_sentences.remove(remove_word)
         return important_sentences
-
-if __name__ == '__main__':
-    print(NLP.make_important_senteces("오늘은 밥을 먹었다. 그리고 식당에 갔다가 축구장에 갔다. 그리고 야구장에 갔다. 재밌었다. 그리고 카페에 갔다? 럭비장도 갔다"))
