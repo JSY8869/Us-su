@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ussu.memorydiary">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher_diary"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_diary_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MemoryDiary"
+        android:windowSoftInputMode="stateAlwaysVisible"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".TextSizeActivity"></activity>
+        <activity android:name=".LocationActivity" />
+        <activity android:name=".ResultActivity" />
+        <activity android:name=".Game2Activity" />
+        <activity android:name=".GameVersionActivity" />
+        <activity android:name=".GameCalendarActivity" />
+        <activity android:name=".CalendarActivity" />
+        <activity android:name=".GameActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".SignupActivity" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".DiaryActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
