@@ -2,7 +2,7 @@ from flask import Flask
 from sqlalchemy import create_engine
 from server_src.diary import Diary
 from server_src.member import Member
-from server_src.game import gamee, game_db, plus_word, Update_Game_Score, Update_Game_Score2
+from server_src.game import game_1, game_2, plus_word, Update_Game_Score, Update_Game_Score2
 
 app = Flask(__name__)
 username="root"
@@ -44,12 +44,12 @@ def login():
 
 # -------------------------Game--------------------------------
 @app.route('/diary/Game', methods=['POST','GET'])
-def game_q():
-    return gamee(create_app())
+def game_q1():
+    return game_1(create_app())
     
 @app.route('/diary/Game2', methods=['POST','GET'])
 def game_q2():
-    return game_db(create_app())
+    return game_2(create_app())
 
 @app.route('/game', methods=['POST','GET'])
 def game_plus_word():
