@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.App.Small" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="mainTextSize">@dimen/main_text_size_0</item>
+    </style>
+
+    <style name="Theme.App.Medium" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="mainTextSize">@dimen/main_text_size_1</item>
+    </style>
+
+    <style name="Theme.App.Large" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="mainTextSize">@dimen/main_text_size_2</item>
+    </style>
+
+
+</resources>
