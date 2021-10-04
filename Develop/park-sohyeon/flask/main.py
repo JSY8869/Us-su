@@ -66,4 +66,4 @@ def game_score2():
 if __name__== '__main__': # 모듈로드
     app.secret_key = 'super secret key'
     app.config['SESSION_TYPE'] = 'filesystem'
-    app.run(host='3.35.9.74', port='80', debug = False)
+    app.run(host='3.35.9.74', port='22', debug = False)
