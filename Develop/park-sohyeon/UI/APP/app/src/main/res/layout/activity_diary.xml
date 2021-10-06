@@ -17,7 +17,8 @@
         <TextView
             android:id="@+id/textViewDate"
             android:layout_width="match_parent"
-            android:layout_height="32dp" />
+            android:layout_height="wrap_content"
+            android:textSize="?attr/mainTextSize"/>
 
         <EditText
             android:id="@+id/EditTextDiary"
@@ -61,7 +62,7 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="32dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="문장 뒤에 꼭 온점(.)을 찍어주세요."
             android:textSize="?attr/mainTextSize"
