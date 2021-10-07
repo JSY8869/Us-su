@@ -18,14 +18,15 @@ def game_1(app): # 게임 1 실행 코드
                 return 'error'
 
 def game_2(app): # 게임 2 실행 코드
+        row = []
         row = app.database.execute(text("""
                                 SELECT text, score_ox2 FROM diary 
                                 WHERE member_id= :member_id and created_at= :created_at
                                 """),request.json).fetchall()
         
-        if row != None:
+        if row != []:
                 if row[0][1] == 1: # 게임을 이미 진행한 경우
-                        return json.dumps({'member_id':request.json['member_id'], 'created_at':request.json['created_at'], 'question':'h', 'answer':'1', 'score':0, 'score_ox2':1} )
+                        return 'error'
                 try:
                         important_words = NLP_game2.NLP2.make_important_word(row[0][0])
                         if important_words == None:

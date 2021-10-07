@@ -39,6 +39,6 @@ class Diary():
             if row != None:
                 return json.dumps({'member_id':request.json['member_id'], 'created_at':request.json['created_at'], 'text':row[0]})
             else:
-                return json.dumps({""})
+                return 'error'
         except:
             return 'error'
