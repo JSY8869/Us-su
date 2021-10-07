@@ -1,5 +1,5 @@
 import pymysql
-db= pymysql.connect(host='localhost',
+db= pymysql.connect(host='admin',
                      port=3306,
                      user='root',
                      passwd='0cN1KvzzVeQuO7xc7fmt',
