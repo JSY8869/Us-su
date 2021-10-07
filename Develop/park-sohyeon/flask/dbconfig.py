@@ -1,5 +1,5 @@
 import pymysql
-db= pymysql.connect(host='localhost',port=3306,user='root',db='test',charset='utf8')
+db= pymysql.connect(host='localhost',port=3306,user='root',db='member, diary, game',charset='utf8')
 
 
 db.cursor().execute("show tables")
