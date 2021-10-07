@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="main_text_size_0">12sp</dimen>
-    <dimen name="main_text_size_1">16sp</dimen>
-    <dimen name="main_text_size_2">20sp</dimen>
+    <dimen name="main_text_size_0">28sp</dimen>
+    <dimen name="main_text_size_1">38sp</dimen>
+    <dimen name="main_text_size_2">56sp</dimen>
 </resources>

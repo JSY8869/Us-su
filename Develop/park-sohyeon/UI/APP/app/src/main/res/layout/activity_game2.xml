@@ -18,7 +18,7 @@
         <TextView
             android:id="@+id/textViewQuestion"
             android:layout_width="match_parent"
-            android:layout_height="32dp"
+            android:layout_height="wrap_content"
             android:text="어디에 다녀왔나요?"
             android:textSize="?attr/mainTextSize"/>
 
