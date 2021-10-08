@@ -5,7 +5,7 @@ class Member():
 
     def login_proc(app): # 로그인 (입력받은 아이디로 DB의 아이디 비밀번호 불러옴)
         row = app.database.execute(text("""
-            select member_id, member_password from member where member_id = :member_id 
+            select member_id, member_password from sys.member where member_id = :member_id 
         """),request.json).fetchone()
         return json.dumps({'member_id':row[0], 'member_password':row[1]})
 
