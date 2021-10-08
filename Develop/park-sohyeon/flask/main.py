@@ -24,6 +24,7 @@ def diary_R():
 
 @app.route('/diary/Create', methods = ['POST','GET']) # 일기 수정
 def diary_C():
+        print("hi")
         return Diary.create(create_app())
 
 @app.route('/diary/Delete', methods = ['POST']) # 일기 삭제
