@@ -10,12 +10,19 @@ class Diary():
         if row == None: return (False)
         else: return(True)
 
-    def create(app): # 일기 작성 및 수정
-        app.database.execute(text("""
-                            INSERT INTO sys.diary (created_at, member_id, text)
-                            VALUES (:created_at, :member_id, :text)
-                            """),request.json).lastrowid
-        return json.dumps({'member_id':request.json['member_id'], 'created_at':request.json['created_at'], 'text':request.json['text']})
+    def create(app): # 일기 작성
+        if Diary.diary_check(app):
+            app.database.execute(text("""
+                Update sys.diary
+                SET text = :text
+                Where member_id = :member_id and created_at = :created_at
+                """),request.json).lastrowid
+        else:
+            app.database.execute(text("""
+                                INSERT INTO sys.diary (created_at, member_id, text)
+                                VALUES (:created_at, :member_id, :text)
+                                """),request.json).lastrowid
+            return json.dumps({'member_id':request.json['member_id'], 'created_at':request.json['created_at'], 'text':request.json['text']})
     
     def delete(app): # 일기 삭제
         app.database.execute(text("""
