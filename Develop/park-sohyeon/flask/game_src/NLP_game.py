@@ -35,7 +35,7 @@ class NLP1:
         return dot_input_sentences
 
     def make_important_senteces(sentences):
-        m = Mecab()
+        m = Mecab('Develop\park-sohyeon\flask\dic')
         random_dot_input_sentences = random.sample(NLP1.sentence_extraction(sentences, m), 1)
         important_sentences = []#평서문 들 중 NNG, NNP, NP와 같은 품사를 가지는 단어들을 추출한 리스트
         Str_dot_sentences = []#리스트화 되어있는 문자열들을 띄어쓰기 없이 하나의 문자열로 변환

@@ -17,6 +17,7 @@ class Diary():
                 SET text = :text
                 Where member_id = :member_id and created_at = :created_at
                 """),request.json).lastrowid
+            return json.dumps({'member_id':request.json['member_id'], 'created_at':request.json['created_at'], 'text':request.json['text']})
         else:
             app.database.execute(text("""
                                 INSERT INTO sys.diary (created_at, member_id, text)
