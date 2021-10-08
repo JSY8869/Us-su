@@ -5,10 +5,10 @@ from server_src.member import Member
 from server_src.game import game_1, game_2, plus_word, Update_Game_Score, Update_Game_Score2
 
 app = Flask(__name__)
-username="root"
-password = "0cN1KvzzVeQuO7xc7fmt"
-host = "localhost"
-db_name = "test"
+username="ussu"
+password = "qwer1234"
+host = "database-2.cpjkudy7ec1y.ap-northeast-2.rds.amazonaws.com"
+db_name = "sys"
 db_path = "mysql+pymysql://{}:{}@{}:3306/{}?charset=utf8".format(username, password, host, db_name)
 def create_app(test_config = None):
     app.config.from_pyfile('dbconfig.py')
