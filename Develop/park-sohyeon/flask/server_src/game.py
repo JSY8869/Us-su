@@ -34,17 +34,16 @@ def game_2(app): # 게임 2 실행 코드
                 SQL += '")'
                 row = app.database.execute(SQL).fetchall()
                 row_string = ""
-                for i in range(len(row)):
+                for i in range(len(row)-1):
                         row_string += ''.join(row[i])+' '
                 if row_string != "":
-                        row_string[-1].pop
+                        row_string += ''.join(row[-1])
                         return json.dumps({'member_id':request.json['member_id'], 'created_at':request.json['created_at'], 'question':'h', 'answer':row_string, 'score':Read_Game_Score(app), 'score_ox2':0} )
                 else:
                         important_word = ""
-                        for i in range(len(important_words)):
+                        for i in range(len(important_words)-1):
                                 important_word += ''.join(important_words[i])+' '
-                        important_word[-1].pop
-                        print(important_word)
+                        important_word += ''.join(important_words[-1])
                         return json.dumps({'member_id':request.json['member_id'], 'created_at':request.json['created_at'], 'question':'h', 'answer':99, 'game_text':important_word, 'score':Read_Game_Score(app), 'score_ox2':0})
         else:
                 return 'error'
