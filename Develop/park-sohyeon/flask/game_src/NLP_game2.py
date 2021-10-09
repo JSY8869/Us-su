@@ -1,8 +1,8 @@
-from konlpy.tag import Mecab
+from eunjeon import Mecab
 
 class NLP2:
     def make_important_word(sentences):
-        m = Mecab('Develop/park-sohyeon/flask/dic')
+        m = Mecab()
         mpos = m.pos(sentences) #문장 내 모든 단어의 품사를 구함
         important_sentences = []#평서문 들 중 NNG, NNP, NP와 같은 품사를 가지는 단어들을 추출한 리스트
         Str_dot_sentences = []#리스트화 되어있는 문자열들을 띄어쓰기 없이 하나의 문자열로 변환
