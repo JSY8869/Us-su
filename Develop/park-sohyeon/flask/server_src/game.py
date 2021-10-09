@@ -63,12 +63,12 @@ def plus_word(app): # DB에 '장소'관련 단어 추가
 def Update_Game_Score(app): # 게임 1 완료 정보 저장
         app.database.execute(text("""
                         Update sys.member
-                        SET score= :score
+                        SET score = :score
                         Where member_id = :member_id
                         """),request.json).lastrowid
         app.database.execute(text("""
                         Update sys.diary
-                        SET score_ox1= 1
+                        SET score_ox1 = 1
                         Where member_id = :member_id and created_at = :created_at
                         """),request.json).lastrowid
         return (json.dumps({'score':request.json['score']}))
@@ -76,12 +76,12 @@ def Update_Game_Score(app): # 게임 1 완료 정보 저장
 def Update_Game_Score2(app): # 게임 2 완료 정보 저장
         app.database.execute(text("""
                         Update sys.member
-                        SET score= :score
+                        SET score = :score
                         Where member_id = :member_id
                         """),request.json).lastrowid
         app.database.execute(text("""
                         Update sys.diary
-                        SET score_ox2= 1
+                        SET score_ox2 = 1
                         Where member_id = :member_id and created_at = :created_at
                         """),request.json).lastrowid
         return (json.dumps({'score':request.json['score']}))
