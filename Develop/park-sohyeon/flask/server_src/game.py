@@ -23,10 +23,10 @@ def game_2(app): # 게임 2 실행 코드
         
         if row != []:
                 if row[0][1] == 1: # 게임을 이미 진행한 경우
-                        return json.dumps({'member_id':request.json['member_id'], 'created_at':request.json['created_at'], 'question':'', 'answer':'', 'score':Read_Game_Score(app), 'score_ox2':1})
+                        return json.dumps({'member_id':request.json['member_id'], 'created_at':request.json['created_at'], 'question':'', 'answer':'', 'score':0, 'score_ox2':1})
                 important_words = NLP_game2.NLP2.make_important_word(row[0][0])
                 if important_words == None:
-                        json.dumps({'member_id':request.json['member_id'], 'created_at':request.json['created_at'], 'question':'', 'answer':'', 'score':Read_Game_Score(app), 'score_ox2':2} )
+                        json.dumps({'member_id':request.json['member_id'], 'created_at':request.json['created_at'], 'question':'', 'answer':'', 'score':0, 'score_ox2':2} )
                 game_text = {}
                 game_text['game_text'] = important_words
                 SQL = 'SELECT game_text FROM sys.game WHERE game_text in ("'
@@ -46,7 +46,7 @@ def game_2(app): # 게임 2 실행 코드
                         important_word += ''.join(important_words[-1])
                         return json.dumps({'member_id':request.json['member_id'], 'created_at':request.json['created_at'], 'question':'h', 'answer':99, 'game_text':important_word, 'score':Read_Game_Score(app), 'score_ox2':0})
         else:
-                return 'error'
+                return json.dumps({'member_id':request.json['member_id'], 'created_at':request.json['created_at'], 'question':'', 'answer':'', 'score':0, 'score_ox2':3} )
 
 def plus_word(app): # DB에 '장소'관련 단어 추가
         game_text = {}
