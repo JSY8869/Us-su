@@ -23,10 +23,10 @@ def game_2(app): # 게임 2 실행 코드
         
         if row != []:
                 if row[0][1] == 1: # 게임을 이미 진행한 경우
-                        return 'error'
+                        return json.dumps({'member_id':request.json['member_id'], 'created_at':request.json['created_at'], 'question':'', 'answer':'', 'score':Read_Game_Score(app), 'score_ox2':1})
                 important_words = NLP_game2.NLP2.make_important_word(row[0][0])
                 if important_words == None:
-                        return 'error'
+                        json.dumps({'member_id':request.json['member_id'], 'created_at':request.json['created_at'], 'question':'', 'answer':'', 'score':Read_Game_Score(app), 'score_ox2':2} )
                 game_text = {}
                 game_text['game_text'] = important_words
                 SQL = 'SELECT game_text FROM sys.game WHERE game_text in ("'
@@ -37,6 +37,7 @@ def game_2(app): # 게임 2 실행 코드
                 for i in range(len(row)):
                         row_string += ''.join(row[i])+' '
                 if row_string != "":
+                        row_string[-1].pop
                         return json.dumps({'member_id':request.json['member_id'], 'created_at':request.json['created_at'], 'question':'h', 'answer':row_string, 'score':Read_Game_Score(app), 'score_ox2':0} )
                 else:
                         important_word = ""
