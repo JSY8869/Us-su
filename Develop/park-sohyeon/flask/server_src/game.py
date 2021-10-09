@@ -3,17 +3,20 @@ from sqlalchemy import text
 from game_src import NLP_game
 from game_src import NLP_game2
 def game_1(app): # 게임 1 실행 코드
+        row = []
         row = app.database.execute(text("""
                                 SELECT text, score_ox1 FROM sys.diary 
                                 WHERE member_id= :member_id and created_at= :created_at
                                 """),request.json).fetchone()
-        question, answer = NLP_game.NLP1.make_qa(row[0])
-        score = Read_Game_Score(app)
-        if score != -1:
-                return json.dumps({'member_id':request.json['member_id'], 'created_at':request.json['created_at'], 'question':question, 'answer':answer, 'score':score, 'score_ox1':row[1]})   
+        if row != []:
+                question, answer = NLP_game.NLP1.make_qa(row[0])
+                score = Read_Game_Score(app)
+                if row[1] != 1:
+                        return json.dumps({'member_id':request.json['member_id'], 'created_at':request.json['created_at'], 'question':question, 'answer':answer, 'score':score, 'score_ox1':0})   
+                else:
+                        return json.dumps({'member_id':request.json['member_id'], 'created_at':request.json['created_at'], 'question':question, 'answer':answer, 'score':score, 'score_ox1':1})
         else:
-                return 'error'
-
+                return json.dumps({'member_id':request.json['member_id'], 'created_at':request.json['created_at'], 'question':'', 'answer':'', 'score':0, 'score_ox1':2})
 def game_2(app): # 게임 2 실행 코드
         row = []
         row = app.database.execute(text("""
