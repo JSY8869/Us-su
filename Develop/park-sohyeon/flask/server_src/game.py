@@ -8,6 +8,7 @@ def game_1(app): # 게임 1 실행 코드
                                 SELECT text, score_ox1 FROM sys.diary 
                                 WHERE member_id= :member_id and created_at= :created_at
                                 """),request.json).fetchone()
+        print(row)
         if row != []:
                 question, answer = NLP_game.NLP1.make_qa(row[0])
                 score = Read_Game_Score(app)
