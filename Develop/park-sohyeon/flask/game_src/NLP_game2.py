@@ -1,4 +1,4 @@
-from eunjeon import Mecab
+from konlpy.tag import Mecab
 
 class NLP2:
     def make_important_word(sentences):

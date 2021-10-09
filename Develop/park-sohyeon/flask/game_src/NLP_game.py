@@ -1,4 +1,4 @@
-from eunjeon import Mecab
+from konlpy.tag import Mecab
 import random
 
 class NLP1:
