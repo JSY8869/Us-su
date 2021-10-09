@@ -3,8 +3,6 @@ from sqlalchemy import text
 from game_src import NLP_game
 from game_src import NLP_game2
 def game_1(app): # 게임 1 실행 코드
-        request.json['member_id'] = 'ppsh1102'
-        print(request.json)
         row = app.database.execute(text("""
                                 SELECT text, score_ox1 FROM sys.diary 
                                 WHERE member_id= :member_id and created_at= :created_at
