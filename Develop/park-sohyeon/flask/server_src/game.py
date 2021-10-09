@@ -37,7 +37,9 @@ def game_2(app): # 게임 2 실행 코드
                 for i in range(len(row)):
                         row_string += ''.join(row[i])+' '
                 if row_string != "":
+                        print(row_string)
                         row_string[-1].pop
+                        print(row_string)
                         return json.dumps({'member_id':request.json['member_id'], 'created_at':request.json['created_at'], 'question':'h', 'answer':row_string, 'score':Read_Game_Score(app), 'score_ox2':0} )
                 else:
                         important_word = ""
