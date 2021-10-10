@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DiaryActivity">
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,11 +15,27 @@
         android:padding="32dp"
         tools:ignore="MissingConstraints">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
         <TextView
             android:id="@+id/textViewDate"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="?attr/mainTextSize"/>
+
+        <Button
+            android:id="@+id/btnEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:text="수정"
+            android:textSize="?attr/mainTextSize"/>
+
+    </LinearLayout>
 
         <EditText
             android:id="@+id/EditTextDiary"
@@ -39,22 +56,15 @@
                 android:id="@+id/btnSaveText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
+                android:layout_margin="8dp"
                 android:text="저장"
-                android:textSize="?attr/mainTextSize"/>
-
-            <Button
-                android:id="@+id/btnEditText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="수정"
                 android:textSize="?attr/mainTextSize"/>
 
             <Button
                 android:id="@+id/btnDeleteText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
+                android:layout_margin="8dp"
                 android:text="삭제"
                 android:textSize="?attr/mainTextSize"/>
 
@@ -63,9 +73,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="4dp"
             android:text="문장 뒤에 꼭 온점(.)을 찍어주세요."
             android:textSize="?attr/mainTextSize"
             />
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

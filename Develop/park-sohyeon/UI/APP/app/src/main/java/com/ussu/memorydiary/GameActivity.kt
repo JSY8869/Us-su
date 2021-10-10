@@ -21,6 +21,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class GameActivity : BaseActivity() {
+    private lateinit var dateTextView: TextView
     private lateinit var AnswerEditText: EditText
     private lateinit var questionTextView: TextView
 
@@ -29,13 +30,16 @@ class GameActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
 
+        dateTextView = findViewById(R.id.textViewDate)
         AnswerEditText = findViewById(R.id.editTextTextAnswer)
         questionTextView = findViewById(R.id.textViewQuestion)
 
         //서버에서 질문, 답 가져오기
-        val BASE_URL = "http://192.168.0.104:8080"
+        val BASE_URL = "http://3.35.88.89:8080"
         val id = intent.getStringExtra("id")
         val date = intent.getStringExtra("date")
+
+        dateTextView.text = "$date"
 
         var gson = GsonBuilder()
             .setLenient()
@@ -63,6 +67,10 @@ class GameActivity : BaseActivity() {
                         questionTextView.text = "$question"
                         btnAnswer.isVisible = false
                         Toast.makeText(this@GameActivity, "다른 날짜를 선택해주세요.", Toast.LENGTH_LONG).show()
+                    } else if (score_ox == 2) {
+                        questionTextView.text = "$question"
+                        btnAnswer.isVisible = false
+                        Toast.makeText(this@GameActivity, "우선 일기를 작성해주세요", Toast.LENGTH_LONG).show()
                     } else {
                         //질문 textView에 띄우기
                         questionTextView.text = "$question"
@@ -71,13 +79,12 @@ class GameActivity : BaseActivity() {
                         btnAnswer.setOnClickListener {
                             //답 입력받기
                             var answer = AnswerEditText.text.toString()
-                            Toast.makeText(this@GameActivity, "$answer, $getAnswer", Toast.LENGTH_LONG).show()
 
                             //답 비교
                             if (answer == getAnswer) { //정답
                                 Toast.makeText(this@GameActivity, "정답입니다!", Toast.LENGTH_LONG).show()
                                 score = score + 1
-                                val BASE_URL = "http://192.168.0.104:8080"
+                                val BASE_URL = "http://3.35.88.89:8080"
 
                                 var gson = GsonBuilder()
                                     .setLenient()

@@ -16,10 +16,17 @@
         tools:ignore="MissingConstraints">
 
         <TextView
+            android:id="@+id/textViewDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="?attr/mainTextSize"/>
+
+        <TextView
             android:id="@+id/textViewQuestion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="어디에 다녀왔나요?"
+            android:layout_marginTop="12dp"
             android:textSize="?attr/mainTextSize"/>
 
         <LinearLayout

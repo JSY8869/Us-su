@@ -123,7 +123,7 @@ class LocationActivity : BaseActivity() {
                     locationList.add(CB5.getText().toString())
                 }
 
-                val BASE_URL = "http://192.168.0.104:8080"
+                val BASE_URL = "http://3.35.88.89:8080"
                 var locationString = locationList.joinToString(" ")
 
                 var gson = GsonBuilder()
@@ -140,7 +140,7 @@ class LocationActivity : BaseActivity() {
                 callGetGameText.enqueue(object : Callback<gameText> {
                     override fun onResponse(call: Call<gameText>, response: Response<gameText>) {
                         score = score + 1
-                        val BASE_URL = "http://192.168.0.104:8080"
+                        val BASE_URL = "http://3.35.88.89:8080"
 
                         var gson = GsonBuilder()
                             .setLenient()

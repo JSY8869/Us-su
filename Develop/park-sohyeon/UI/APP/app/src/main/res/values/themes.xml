@@ -2,12 +2,12 @@
     <!-- Base application theme. -->
     <style name="Theme.MemoryDiary" parent="Theme.AppCompat.Light">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#7b9acc</item>
-        <item name="colorPrimaryVariant">#7b9acc</item>
+        <item name="colorPrimary">#2B2B2B</item>
+        <item name="colorPrimaryVariant">#2B2B2B</item>
         <item name="colorOnPrimary">#FCF6F5</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">#7b9acc</item>
-        <item name="colorSecondaryVariant">#7b9acc</item>
+        <item name="colorSecondary">#2B2B2B</item>
+        <item name="colorSecondaryVariant">#2B2B2B</item>
         <item name="colorOnSecondary">#FCF6F5</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>

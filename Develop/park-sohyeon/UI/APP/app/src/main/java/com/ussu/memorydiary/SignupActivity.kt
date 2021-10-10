@@ -45,7 +45,7 @@ class SignupActivity : BaseActivity() {
             }
             else -> { //회원가입 성공
                 //서버로 id, pw 전달
-                val BASE_URL = "http://192.168.0.104:8080"
+                val BASE_URL = "http://3.35.88.89:8080"
 
                 var gson = GsonBuilder()
                     .setLenient()
@@ -61,8 +61,15 @@ class SignupActivity : BaseActivity() {
 
                 callSaveMemberInfo.enqueue(object : Callback<memberInfo> {
                     override fun onResponse(call: Call<memberInfo>, response: Response<memberInfo>) {
-                        var intent = Intent(this@SignupActivity, LoginActivity::class.java)
-                        startActivity(intent)
+                        if (response.body() != null) {
+                            var score = response.body()!!.score
+                            if (score == -1) {
+                                Toast.makeText(this@SignupActivity, "사용중인 아이디입니다.", Toast.LENGTH_LONG).show()
+                            } else {
+                                var intent = Intent(this@SignupActivity, LoginActivity::class.java)
+                                startActivity(intent)
+                            }
+                        }
                         Log.d(ContentValues.TAG, "성공: ${response.raw()}")
                     }
 

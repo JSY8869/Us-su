@@ -36,7 +36,7 @@ class DiaryActivity : BaseActivity() {
 
         diaryEditText.setFilters(arrayOf(InputFilter { source, start, end, dest, dstart, dend ->
             val ps: Pattern =
-                Pattern.compile("^[ㄱ-ㅣ가-힣 .?!]*$")
+                Pattern.compile("^[가-힣ㄱ-ㅎㅏ-ㅣ\\u318D\\u119E\\u11A2\\u2022\\u2025a\\u00B7\\uFE55\\u2B93 .?!]*$")
             if (source == "" || ps.matcher(source).matches()) {
                 return@InputFilter source
             } else {
@@ -48,7 +48,7 @@ class DiaryActivity : BaseActivity() {
         val date = intent.getStringExtra("date")
         dateTextView.text = "$date"
 
-        val BASE_URL = "http://192.168.0.104:8080"
+        val BASE_URL = "http://3.35.88.89:8080"
         val id = intent.getStringExtra("id")
 
         var gson = GsonBuilder()
@@ -65,14 +65,14 @@ class DiaryActivity : BaseActivity() {
 
         callReadDiaryText.enqueue(object : Callback<textInfo> {
             override fun onResponse(call: Call<textInfo>, response: Response<textInfo>) {
-                if (response.body() != null) {
+                if (response.body()!!.text != "-1") {
                     var diaryText = response.body()!!.text
                     diaryEditText.setText("$diaryText")
                     diaryEditText.isEnabled = false
 
                     var btnDelete = findViewById<Button>(R.id.btnDeleteText)
                     btnDelete.setOnClickListener {
-                        val BASE_URL = "http://192.168.0.104:8080"
+                        val BASE_URL = "http://3.35.88.89:8080"
                         val date = intent.getStringExtra("date")
                         val id = intent.getStringExtra("id")
                         var text = diaryEditText.text.toString()
@@ -96,7 +96,7 @@ class DiaryActivity : BaseActivity() {
 
                                 var btnSave = findViewById<Button>(R.id.btnSaveText)
                                 btnSave.setOnClickListener {
-                                    val BASE_URL = "http://192.168.0.104:8080"
+                                    val BASE_URL = "http://3.35.88.89:8080"
                                     val id = intent.getStringExtra("id")
                                     var text = diaryEditText.text.toString()
 
@@ -141,7 +141,7 @@ class DiaryActivity : BaseActivity() {
 
                         var btnSave = findViewById<Button>(R.id.btnSaveText)
                         btnSave.setOnClickListener {
-                            val BASE_URL = "http://192.168.0.104:8080"
+                            val BASE_URL = "http://3.35.88.89:8080"
                             val id = intent.getStringExtra("id")
                             var text = diaryEditText.text.toString()
 
@@ -181,7 +181,7 @@ class DiaryActivity : BaseActivity() {
 
                     var btnSave = findViewById<Button>(R.id.btnSaveText)
                     btnSave.setOnClickListener {
-                        val BASE_URL = "http://192.168.0.104:8080"
+                        val BASE_URL = "http://3.35.88.89:8080"
                         val id = intent.getStringExtra("id")
                         var text = diaryEditText.text.toString()
 

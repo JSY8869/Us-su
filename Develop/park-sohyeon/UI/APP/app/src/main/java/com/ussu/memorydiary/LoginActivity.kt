@@ -39,7 +39,7 @@ class LoginActivity : BaseActivity() {
 //        game_text.add("$loginId")
 //        Toast.makeText(this, "$game_text", Toast.LENGTH_LONG).show()
 
-        val BASE_URL = "http://192.168.0.104:8080"
+        val BASE_URL = "http://3.35.88.89:8080"
 
         var gson = GsonBuilder()
             .setLenient()
