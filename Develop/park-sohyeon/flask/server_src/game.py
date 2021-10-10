@@ -39,15 +39,14 @@ def game_2(app): # 게임 2 실행 코드
                 SQL = 'SELECT game_text FROM sys.game WHERE game_text in ("'
                 SQL += '","'.join(game_text['game_text'])
                 SQL += '")'
+                row = []
                 row = app.database.execute(SQL).fetchall()
-                print(row)
-                row_string = ""
-                for i in range(len(row)-1):
-                        row_string += ''.join(row[i])+' '
                 # 장소 관련 단어가 있는 경우    
-                if row_string != "": 
+                if row == []: 
+                        row_string = ""
+                        for i in range(len(row)-1):
+                                row_string += ''.join(row[i])+' '
                         row_string += ''.join(row[-1])
-                        print(row_string)
                         return json.dumps({'member_id':request.json['member_id'], 'created_at':request.json['created_at'], 'question':'h', 'answer':row_string, 'score':Read_Game_Score(app), 'score_ox2':0} )
                 # 장소 관련 단어가 없는 경우
                 else: 
@@ -55,7 +54,6 @@ def game_2(app): # 게임 2 실행 코드
                         for i in range(len(important_words)-1):
                                 important_word += ''.join(important_words[i])+' '
                         important_word += ''.join(important_words[-1])
-                        print("important" + important_word)
                         return json.dumps({'member_id':request.json['member_id'], 'created_at':request.json['created_at'], 'question':'h', 'answer':99, 'game_text':important_word, 'score':Read_Game_Score(app), 'score_ox2':0})
         else:
                 return json.dumps({'member_id':request.json['member_id'], 'created_at':request.json['created_at'], 'question':'', 'answer':'', 'score':0, 'score_ox2':3} )
