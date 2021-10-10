@@ -30,7 +30,7 @@
             android:padding="16dp"
             android:onClick="goV2"
             android:textSize="?attr/mainTextSize"
-            android:text="어디에 다녀왔나요?" />
+            android:text="어디에\n다녀왔나요?" />
 
     </LinearLayout>
 

@@ -11,9 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_diary_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MemoryDiary"
-        android:windowSoftInputMode="stateAlwaysVisible"
-        android:usesCleartextTraffic="true">
-        <activity android:name=".GameVersionActivity"></activity>
+        android:usesCleartextTraffic="true"
+        android:windowSoftInputMode="stateAlwaysVisible">
+        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".GameVersionActivity" />
         <activity android:name=".LocationActivity" />
         <activity android:name=".ResultActivity" />
         <activity android:name=".Game2Activity" />
@@ -23,8 +24,8 @@
         <activity android:name=".GameActivity" />
         <activity android:name=".TextSizeActivity" />
         <activity android:name=".SignupActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".HomeActivity">
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".AgreeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

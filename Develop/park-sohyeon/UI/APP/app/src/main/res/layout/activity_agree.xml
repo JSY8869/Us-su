@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AgreeActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="24dp"
+            android:textSize="?attr/mainTextSize"
+            android:text="개인정보 수집동의(필수)\n기억일기 서비스 이용을 위해\n아래와 같이 개인정보를 수집･이용 합니다.\n\n수집 목적 : 회원식별 및 서비스 제공\n수집 항목 : 아이디, 비밀번호, 일기 내용\n보유･이용 기간 : 서비스 탈퇴시" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="24dp"
+
+            android:text="*동의를 거부할 권리가 있습니다. 다만 필수 동의 거부 시 서비스가 제한될 수 있습니다."
+            android:textSize="?attr/mainTextSize"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="24dp"
+            android:text="위 개인정보 수집･이용에 동의합니다."
+            android:textSize="?attr/mainTextSize"/>
+
+        <CheckBox
+            android:id="@+id/agree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:text="예"
+            android:onClick="onCheckboxClicked"
+            android:textSize="?attr/mainTextSize"/>
+
+
+    </LinearLayout>
+
+
+
+</ScrollView>

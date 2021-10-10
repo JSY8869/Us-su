@@ -15,10 +15,10 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="96dp"
+            android:layout_marginTop="36dp"
             android:background="#7b9acc"
             android:gravity="center"
-            android:padding="48dp"
+
             android:text="회원가입"
             android:textColor="@color/black"
             android:backgroundTint="@color/white"
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="32dp"
+            android:padding="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -40,19 +40,21 @@
 
             <EditText
                 android:id="@+id/editTextTextId"
-                android:layout_width="240dp"
+                android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:hint="아이디를 입력하세요"
+                android:textSize="?attr/mainTextSize"
                 android:inputType="textEmailAddress"
                 android:digits="abcdefghijklmnopqrstuvwxyz0123456789"/>
 
             <EditText
                 android:id="@+id/editTextTextPassword"
-                android:layout_width="240dp"
+                android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:hint="비밀번호를 입력하세요"
+                android:textSize="?attr/mainTextSize"
                 android:inputType="textPassword"
                 android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"/>
 
