@@ -42,7 +42,7 @@ def game_2(app): # 게임 2 실행 코드
                 row = []
                 row = app.database.execute(SQL).fetchall()
                 # 장소 관련 단어가 있는 경우    
-                if row == []: 
+                if row != []: 
                         row_string = ""
                         for i in range(len(row)-1):
                                 row_string += ''.join(row[i])+' '
