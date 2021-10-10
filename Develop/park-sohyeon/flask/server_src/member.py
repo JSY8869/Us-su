@@ -13,8 +13,8 @@ class Member():
         member_id_cor = app.database.execute(text("""
                         select member_id from sys.member 
                         where member_id = :member_id
-                        """), request.json).fetchone()
-        if (member_id_cor != None): return "error"
+                        """), request.json).fetchone() 
+        if (member_id_cor != None): return json.dumps({'member_id':'a', 'member_password':'a', 'score':-1}) # 중복 예외처리
         else:
             app.database.execute(text("""
                                 INSERT INTO sys.member (member_id, member_password, score)
