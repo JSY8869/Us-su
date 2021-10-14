@@ -38,6 +38,7 @@ class Diary():
                                 WHERE member_id= :member_id and created_at= :created_at
                                 """),request.json).fetchone()
         if row != None:
+            print(row[0])
             return json.dumps({'member_id':request.json['member_id'], 'created_at':request.json['created_at'], 'text':row[0]})
         else:
             return json.dumps({'member_id':request.json['member_id'], 'created_at':request.json['created_at'], 'text':'-1'})
