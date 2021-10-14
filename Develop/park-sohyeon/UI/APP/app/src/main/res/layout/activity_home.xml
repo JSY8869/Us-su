@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/back"
     tools:context=".HomeActivity">
 
     <LinearLayout
@@ -26,8 +27,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:onClick="clickDiary"
-            android:padding="16dp"
+            android:padding="30dp"
             android:text="일기"
+            android:backgroundTint="#7b9acc"
             android:textSize="?attr/mainTextSize"/>
 
         <Button
@@ -35,8 +37,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:onClick="clickGame"
-            android:padding="16dp"
+            android:padding="30dp"
             android:text="게임"
+            android:backgroundTint="#7b9acc"
             android:textSize="?attr/mainTextSize"/>
 
         <Button
@@ -44,7 +47,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:onClick="clickSetting"
-            android:padding="16dp"
+            android:backgroundTint="#7b9acc"
+            android:padding="30dp"
             android:text="설정"
             android:textSize="?attr/mainTextSize"/>
 

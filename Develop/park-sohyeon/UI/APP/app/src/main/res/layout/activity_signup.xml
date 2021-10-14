@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/back"
     tools:context=".SignupActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,7 +17,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
-            android:background="#7b9acc"
             android:gravity="center"
 
             android:text="회원가입"
@@ -64,6 +64,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:onClick="clickSignup"
+                android:backgroundTint="#7b9acc"
                 android:padding="16dp"
                 android:text="회원가입"
                 android:textSize="?attr/mainTextSize"/>

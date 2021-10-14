@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/back"
     tools:context=".LoginActivity">
 
 
@@ -17,11 +18,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
-            android:background="#7b9acc"
             android:gravity="center"
             android:text="로그인"
             android:textColor="@color/black"
-            android:backgroundTint="@color/white"
             android:textSize="36sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -44,6 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:hint="아이디를 입력하세요"
+                android:textColorHint="@color/black"
                 android:textSize="?attr/mainTextSize"
                 android:inputType="textEmailAddress"
                 android:digits="abcdefghijklmnopqrstuvwxyz0123456789"/>
@@ -53,6 +53,7 @@
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
+                android:textColorHint="@color/black"
                 android:textSize="?attr/mainTextSize"
                 android:hint="비밀번호를 입력하세요"
 
@@ -68,7 +69,7 @@
                 android:padding="16dp"
                 android:text="로그인"
                 android:textColor="@color/white"
-                android:backgroundTint="#2B2B2B"
+                android:backgroundTint="#7b9acc"
                 android:textSize="?attr/mainTextSize"/>
 
             <Button
@@ -79,7 +80,7 @@
                 android:onClick="goSignup"
                 android:text="회원가입"
                 android:textColor="@color/white"
-                android:backgroundTint="#2B2B2B"
+                android:backgroundTint="#7b9acc"
                 android:textSize="?attr/mainTextSize"/>
 
         </LinearLayout>
