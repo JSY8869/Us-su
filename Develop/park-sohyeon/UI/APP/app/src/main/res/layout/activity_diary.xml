@@ -4,22 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/back"
     tools:context=".DiaryActivity">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:orientation="vertical"
         android:padding="32dp"
         tools:ignore="MissingConstraints">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/textViewDate"
@@ -31,17 +25,18 @@
             android:id="@+id/btnEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
+            android:layout_gravity="right"
+            android:backgroundTint="#7b9acc"
             android:text="수정"
             android:textSize="?attr/mainTextSize"/>
 
-    </LinearLayout>
 
         <EditText
             android:id="@+id/EditTextDiary"
             android:layout_width="match_parent"
             android:gravity="top"
             android:layout_height="400dp"
+            android:hint="문장 뒤에 꼭 온점(.)을 찍어주세요."
             android:layout_marginTop="16dp"
             android:textSize="?attr/mainTextSize"
             android:background="@drawable/border_layout"/>
@@ -58,6 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:text="저장"
+                android:backgroundTint="#7b9acc"
                 android:textSize="?attr/mainTextSize"/>
 
             <Button
@@ -66,16 +62,10 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:text="삭제"
+                android:backgroundTint="#7b9acc"
                 android:textSize="?attr/mainTextSize"/>
 
         </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="문장 뒤에 꼭 온점(.)을 찍어주세요."
-            android:textSize="?attr/mainTextSize"
-            />
     </LinearLayout>
 </ScrollView>

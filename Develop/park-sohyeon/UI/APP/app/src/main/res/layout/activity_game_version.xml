@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/back"
     tools:context=".GameVersionActivity">
 
     <LinearLayout
@@ -17,20 +18,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:padding="16dp"
+            android:padding="30dp"
+            android:backgroundTint="#7b9acc"
             android:onClick="goV1"
             android:textSize="?attr/mainTextSize"
-            android:text="빈칸 맞추기" />
+            android:text="빈칸\n맞추기" />
 
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:padding="16dp"
+            android:padding="30dp"
             android:onClick="goV2"
+            android:backgroundTint="#7b9acc"
             android:textSize="?attr/mainTextSize"
-            android:text="어디에\n다녀왔나요?" />
+            android:text="장소\n맞추기" />
 
     </LinearLayout>
 

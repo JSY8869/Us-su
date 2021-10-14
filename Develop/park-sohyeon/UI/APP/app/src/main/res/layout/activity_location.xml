@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/back"
     tools:context=".LocationActivity">
 
     <LinearLayout
@@ -63,6 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="저장"
+            android:backgroundTint="#7b9acc"
             android:textSize="?attr/mainTextSize"/>
 
     </LinearLayout>

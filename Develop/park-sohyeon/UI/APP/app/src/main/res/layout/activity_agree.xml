@@ -23,7 +23,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="24dp"
-
             android:text="*동의를 거부할 권리가 있습니다. 다만 필수 동의 거부 시 서비스가 제한될 수 있습니다."
             android:textSize="?attr/mainTextSize"/>
 
