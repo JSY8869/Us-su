@@ -1,51 +1,36 @@
-# [Us-su](https://github.com/JSY8869/Us-su/issues/2#issuecomment-751324185)
+# 팀명 작성 예정
 ## [한이음](https://www.hanium.or.kr/portal/hanium/mainOverview.do)
 - 이 repository는 2021년 한이음 공모전을 준비하기 위한 repository입니다.
 ## 팀원 소개
 ### 정세영
 - github-name : [JSY8869](https://github.com/JSY8869)
 - 역할 : 팀장, 총괄
-- 사용 가능 언어 : JAVA, Javascript(React.js), C, C++, PYTHON, HTML, CSS, Kotlin
-- 개발환경 : Eclipse, VSCODE, Visual Studio, IntellijIDEA
-- 희망 진로 : 백엔드 개발자
+- 사용 가능 언어 : JAVA, C, C++, Python, Kotlin, JPA, Spring
+- 개발환경 : VSCODE, Visual Studio, Intellij IDEA
+- 희망 진로 : Server Developer
 ### 이수혁
-- 역할 : 팀원, 문장학습, 핵심어 추출 Algorithm
-- 사용 가능 언어 : python, c, c++
-- 개발환경 : vscode, visual studio
-- 희망 진로 : 반도체 공정 엔지니어
-### 박지수
-- 역할 : 팀원, UI
-- 사용 가능 언어 : python, C
-- 개발환경 : VSCODE, Visual Studio
-- 희망 진로 : 반도체 공정 엔지니어
-### 박소현
-- 역할 : 팀원, Server
-- 사용 가능 언어 : PYTHON, C
-- 개발환경 : Visual Studio, VSCODE
-- 희망 진로 : 반도체 공정 엔지니어
-### 안재홍
-- 역할 : 팀원, 데이터(text) 전처리
-- 사용 가능 언어 : PYTHON
-- 개발환경 : VSCODE
-- 희망 진로 : 반도체 공정 엔지니어
+- 역할 : 
+- 사용 가능 언어 : 
+- 개발환경 : 
+- 희망 진로 : 
+### 조윤설
+- 역할 : 
+- 사용 가능 언어 : 
+- 개발환경 : 
+- 희망 진로 : 
+### 장중기
+- 역할 : 
+- 사용 가능 언어 : 
+- 개발환경 : 
+- 희망 진로 : 
 ## 목표
-- 2021 한이음 공모전 대상
-- 3학년 2학기 전공 공학설계 A+
+- 2022 한이음 공모전 대상
+- 3학년 1학기 전공 캡스톤디자인 A+
 ## 계획
-### 2020/12/23 ~ 2021/02/16
-- 공모전 주제 정하기 - 치매예방 프로그램
-### 2021/02/16 ~ 2021/02/28
-- 개발에 필요한 언어 공부하기
-### 2021/02/28 ~ 2021/03/28
-- 자세한 설계 및 개발 준비
-### 2021/03/28 ~ 2021/05/02
-- 개발 준비
-### 2021/05/02 ~ 2021/10/18
-- 개발!
+### 2022/01/05 ~
+- 공모전 주제 정하기
 ## 주제
-### [치매예방 프로그램](https://github.com/JSY8869/Us-su/issues/1#issuecomment-778320256)
-### 구성도
-![구성도](https://user-images.githubusercontent.com/65009713/124792197-c1353200-df87-11eb-89ea-7e3ca9a41524.PNG)
+작성 예정
 # Manual
 - 모든 개발은 `Develop` 폴더에서 진행한다.
   - 각자 작업은 닉네임 폴더 만들어서 할 것(ex: JSY8869)
@@ -65,5 +50,5 @@
   - `Issue`를 읽고 확인 및 이해가 된 경우 이모티콘을 남긴다.
   - 매주 meeting이 끝난 후 48시간 내에 meeting issue에 review를 댓글로 남긴다.
 - 아이디어 회의
-  - 매일 오후 9시~10시 Google meeting을 이용하여 아이디어 구상 시간을 가진다.
+  - 매일 오후 10시~11시 Google meet을 이용하여 아이디어 구상 시간을 가진다.
   - 1시간의 meeting이 종료된 후 `issue`에 `review`를 통해 각자의 생각과 활동을 공유한다.
