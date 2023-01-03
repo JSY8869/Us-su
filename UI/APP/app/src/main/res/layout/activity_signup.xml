@@ -53,10 +53,10 @@
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^*"
                 android:hint="비밀번호를 입력하세요"
-                android:textSize="?attr/mainTextSize"
                 android:inputType="textPassword"
-                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"/>
+                android:textSize="?attr/mainTextSize" />
 
             <Button
                 android:id="@+id/btnClickSignup"

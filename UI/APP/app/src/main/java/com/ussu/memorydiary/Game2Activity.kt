@@ -2,7 +2,6 @@ package com.ussu.memorydiary
 
 import android.content.ContentValues
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -56,7 +55,7 @@ class Game2Activity : BaseActivity() {
                 if (response.body() != null) {
                     var score = response.body()!!.score
                     var btnAnswer = findViewById<Button>(R.id.btnCheckAnswer)
-                    var score_ox2 = response.body()!!.score_ox2
+                    var score_ox2 = response.body()!!.isPlayed2
 
                     if (score_ox2 == 1) {
                         btnAnswer.isVisible = false
@@ -111,12 +110,12 @@ class Game2Activity : BaseActivity() {
 
                                         val api = retrofit.create(memberAPI::class.java)
                                         val callSaveScore =
-                                            api.saveScore2(memberInfo("$id", "0", score, "$date"))
+                                            api.saveScore2(User("$id", "0"))
 
-                                        callSaveScore.enqueue(object : Callback<memberInfo> {
+                                        callSaveScore.enqueue(object : Callback<User> {
                                             override fun onResponse(
-                                                call: Call<memberInfo>,
-                                                response: Response<memberInfo>
+                                                call: Call<User>,
+                                                response: Response<User>
                                             ) {
                                                 var intent = Intent(
                                                     this@Game2Activity,
@@ -128,7 +127,7 @@ class Game2Activity : BaseActivity() {
                                             }
 
                                             override fun onFailure(
-                                                call: Call<memberInfo>,
+                                                call: Call<User>,
                                                 t: Throwable
                                             ) {
                                                 Log.d(ContentValues.TAG, "실패: $t")

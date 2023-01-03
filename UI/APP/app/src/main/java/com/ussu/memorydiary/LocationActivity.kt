@@ -2,18 +2,16 @@ package com.ussu.memorydiary
 
 import android.content.ContentValues
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.CheckBox
-import android.widget.Toast
 import androidx.core.view.isVisible
 import com.google.gson.GsonBuilder
 import com.ussu.memorydiary.API.diaryAPI
 import com.ussu.memorydiary.API.gameText
 import com.ussu.memorydiary.API.memberAPI
-import com.ussu.memorydiary.API.memberInfo
+import com.ussu.memorydiary.API.User
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -104,6 +102,7 @@ class LocationActivity : BaseActivity() {
             var locationList = mutableListOf<String>()
 
             btnWhere.setOnClickListener {
+
                 if (CB0.isChecked) {
                     locationList.add(CB0.getText().toString())
                 }
@@ -152,16 +151,16 @@ class LocationActivity : BaseActivity() {
                             .build()
 
                         val api = retrofit.create(memberAPI::class.java)
-                        val callSaveScore = api.saveScore2(memberInfo("$id", "0", score, "$date"))
+                        val callSaveScore = api.saveScore2(User("$id", "0"))
 
-                        callSaveScore.enqueue(object : Callback<memberInfo> {
-                            override fun onResponse(call: Call<memberInfo>, response: Response<memberInfo>) {
+                        callSaveScore.enqueue(object : Callback<User> {
+                            override fun onResponse(call: Call<User>, response: Response<User>) {
                                 var intent = Intent(this@LocationActivity, ResultActivity::class.java)
                                 intent.putExtra("id", id)
                                 intent.putExtra("score", score)
                                 startActivity(intent)
                             }
-                            override fun onFailure(call: Call<memberInfo>, t: Throwable) {
+                            override fun onFailure(call: Call<User>, t: Throwable) {
                                 Log.d(ContentValues.TAG, "실패: $t")
                             }
                         })

@@ -5,30 +5,30 @@ import retrofit2.http.*
 
 interface diaryAPI {
     //일기 저장
-    @POST("/diary/Create")
+    @POST("/diary/create")
     fun saveDiaryText(
-        @Body dataClass: textInfo
-    ): Call<textInfo>
+        @Body dataClass: Diary
+    ): Call<Diary>
 
     //일기 가져오기
-    @POST("/diary/Read")
+    @POST("/diary/read")
     fun readDiaryText(
-        @Body dataClass: textInfo
-    ): Call<textInfo>
+        @Body dataClass: Diary
+    ): Call<Diary>
 
     //일기 삭제
-    @POST("/diary/Delete")
+    @POST("/diary/delete")
     fun deleteDiaryText(
-        @Body dataClass: textInfo
-    ): Call<textInfo>
+        @Body dataClass: Diary
+    ): Call<Diary>
 
     //질문, 정답 가져오기
-    @POST("/diary/Game")
+    @POST("/game1")
     fun getAnswer(
         @Body dataClass: questionInfo
     ): Call<questionInfo>
 
-    @POST("/diary/Game2")
+    @POST("/game2")
     fun getAnswer2(
         @Body dataClass: questionInfo
     ): Call<questionInfo>

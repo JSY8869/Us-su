@@ -1,20 +1,16 @@
 package com.ussu.memorydiary
 
 import android.content.ContentValues.TAG
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputFilter
 import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.view.isInvisible
-import androidx.core.view.isVisible
 import com.google.gson.GsonBuilder
 import com.ussu.memorydiary.API.diaryAPI
-import com.ussu.memorydiary.API.textInfo
+import com.ussu.memorydiary.API.Diary
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -61,10 +57,10 @@ class DiaryActivity : BaseActivity() {
             .build()
 
         val api = retrofit.create(diaryAPI::class.java)
-        val callReadDiaryText = api.readDiaryText(textInfo("$id", "$date", "0", 0))
+        val callReadDiaryText = api.readDiaryText(Diary("$id", "$date", "0"))
 
-        callReadDiaryText.enqueue(object : Callback<textInfo> {
-            override fun onResponse(call: Call<textInfo>, response: Response<textInfo>) {
+        callReadDiaryText.enqueue(object : Callback<Diary> {
+            override fun onResponse(call: Call<Diary>, response: Response<Diary>) {
                 if (response.body()!!.text != "-1") {
                     var diaryText = response.body()!!.text
                     diaryEditText.setText("$diaryText")
@@ -87,10 +83,10 @@ class DiaryActivity : BaseActivity() {
                             .build()
 
                         val api = retrofit.create(diaryAPI::class.java)
-                        val callDeleteDiaryText = api.deleteDiaryText(textInfo("$id", "$date", "$text", 0))
+                        val callDeleteDiaryText = api.deleteDiaryText(Diary("$id", "$date", "$text"))
 
-                        callDeleteDiaryText.enqueue(object : Callback<textInfo> {
-                            override fun onResponse(call: Call<textInfo>, response: Response<textInfo>) {
+                        callDeleteDiaryText.enqueue(object : Callback<Diary> {
+                            override fun onResponse(call: Call<Diary>, response: Response<Diary>) {
                                 diaryEditText.setText("")
                                 diaryEditText.isEnabled = true
 
@@ -110,17 +106,17 @@ class DiaryActivity : BaseActivity() {
                                         .build()
 
                                     val api = retrofit.create(diaryAPI::class.java)
-                                    val callSaveDiaryText = api.saveDiaryText(textInfo("$id", "$date", "$text", 0))
+                                    val callSaveDiaryText = api.saveDiaryText(Diary("$id", "$date", "$text"))
 
-                                    callSaveDiaryText.enqueue(object : Callback<textInfo> {
-                                        override fun onResponse(call: Call<textInfo>, response: Response<textInfo>) {
+                                    callSaveDiaryText.enqueue(object : Callback<Diary> {
+                                        override fun onResponse(call: Call<Diary>, response: Response<Diary>) {
                                             diaryEditText.setText("$text")
                                             diaryEditText.isEnabled = false
 
                                             Log.d(TAG, "성공: ${response.raw()}")
                                         }
 
-                                        override fun onFailure(call: Call<textInfo>, t: Throwable) {
+                                        override fun onFailure(call: Call<Diary>, t: Throwable) {
                                             Log.d(TAG, "실패: $t")
                                         }
                                     })
@@ -128,7 +124,7 @@ class DiaryActivity : BaseActivity() {
                                 Log.d(TAG, "성공: ${response.raw()}")
                             }
 
-                            override fun onFailure(call: Call<textInfo>, t: Throwable) {
+                            override fun onFailure(call: Call<Diary>, t: Throwable) {
                                 Log.d(TAG, "실패: $t")
                             }
                         })
@@ -156,17 +152,17 @@ class DiaryActivity : BaseActivity() {
 
                             val api = retrofit.create(diaryAPI::class.java)
                             val callSaveDiaryText =
-                                api.saveDiaryText(textInfo("$id", "$date", "$text", 0))
+                                api.saveDiaryText(Diary("$id", "$date", "$text"))
 
-                            callSaveDiaryText.enqueue(object : Callback<textInfo> {
-                                override fun onResponse(call: Call<textInfo>, response: Response<textInfo>) {
+                            callSaveDiaryText.enqueue(object : Callback<Diary> {
+                                override fun onResponse(call: Call<Diary>, response: Response<Diary>) {
                                     diaryEditText.setText("$text")
                                     diaryEditText.isEnabled = false
 
                                     Log.d(TAG, "성공: ${response.raw()}")
                                 }
 
-                                override fun onFailure(call: Call<textInfo>, t: Throwable) {
+                                override fun onFailure(call: Call<Diary>, t: Throwable) {
                                     Log.d(TAG, "실패: $t")
                                 }
                             })
@@ -195,10 +191,10 @@ class DiaryActivity : BaseActivity() {
                             .build()
 
                         val api = retrofit.create(diaryAPI::class.java)
-                        val callSaveDiaryText = api.saveDiaryText(textInfo("$id", "$date", "$text", 0))
+                        val callSaveDiaryText = api.saveDiaryText(Diary("$id", "$date", "$text"))
 
-                        callSaveDiaryText.enqueue(object : Callback<textInfo> {
-                            override fun onResponse(call: Call<textInfo>, response: Response<textInfo>) {
+                        callSaveDiaryText.enqueue(object : Callback<Diary> {
+                            override fun onResponse(call: Call<Diary>, response: Response<Diary>) {
                                 diaryEditText.setText("$text")
                                 diaryEditText.isEnabled = false
 
@@ -207,7 +203,7 @@ class DiaryActivity : BaseActivity() {
                                 Log.d(TAG, "성공: ${response.raw()}")
                             }
 
-                            override fun onFailure(call: Call<textInfo>, t: Throwable) {
+                            override fun onFailure(call: Call<Diary>, t: Throwable) {
                                 Log.d(TAG, "실패: $t")
                             }
                         })
@@ -215,7 +211,7 @@ class DiaryActivity : BaseActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<textInfo>, t: Throwable) {
+            override fun onFailure(call: Call<Diary>, t: Throwable) {
                 Log.d(TAG, "실패: $t")
             }
         })

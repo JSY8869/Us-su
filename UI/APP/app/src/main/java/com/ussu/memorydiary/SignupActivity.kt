@@ -2,7 +2,6 @@ package com.ussu.memorydiary
 
 import android.content.ContentValues
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -10,7 +9,7 @@ import android.widget.EditText
 import android.widget.Toast
 import com.google.gson.GsonBuilder
 import com.ussu.memorydiary.API.memberAPI
-import com.ussu.memorydiary.API.memberInfo
+import com.ussu.memorydiary.API.User
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -32,20 +31,19 @@ class SignupActivity : BaseActivity() {
 
     fun clickSignup(view: View) {
         //회원가입
-        var id = idEditText.text.toString()
-        var pw = pwEditText.text.toString()
-        var score = 0
+        var identifier = idEditText.text.toString()
+        var password = pwEditText.text.toString()
 
         when {
-            id.isEmpty() -> { //id를 입력하지 않은 경우
+            identifier.isEmpty() -> { //id를 입력하지 않은 경우
                 Toast.makeText(view.context, "id를 입력해주세요", Toast.LENGTH_LONG).show()
             }
-            pw.isEmpty() -> { //password를 입력하지 않은 경우
+            password.isEmpty() -> { //password를 입력하지 않은 경우
                 Toast.makeText(view.context, "password를 입력해주세요", Toast.LENGTH_LONG).show()
             }
             else -> { //회원가입 성공
                 //서버로 id, pw 전달
-                val BASE_URL = "http://3.35.88.89:8080"
+                val BASE_URL = "http://10.0.2.2:8080"
 
                 var gson = GsonBuilder()
                     .setLenient()
@@ -57,23 +55,18 @@ class SignupActivity : BaseActivity() {
                     .build()
 
                 val api = retrofit.create(memberAPI::class.java)
-                val callSaveMemberInfo = api.saveMemberInfo(memberInfo(id, pw, score, "0"))
+                val callSaveUser = api.register(User(identifier, password))
 
-                callSaveMemberInfo.enqueue(object : Callback<memberInfo> {
-                    override fun onResponse(call: Call<memberInfo>, response: Response<memberInfo>) {
-                        if (response.body() != null) {
-                            var score = response.body()!!.score
-                            if (score == -1) {
-                                Toast.makeText(this@SignupActivity, "사용중인 아이디입니다.", Toast.LENGTH_LONG).show()
-                            } else {
-                                var intent = Intent(this@SignupActivity, LoginActivity::class.java)
-                                startActivity(intent)
-                            }
+                callSaveUser.enqueue(object : Callback<Void> {
+                    override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                        if (response.isSuccessful) {
+                            var intent = Intent(this@SignupActivity, LoginActivity::class.java)
+                            startActivity(intent)
                         }
                         Log.d(ContentValues.TAG, "성공: ${response.raw()}")
                     }
 
-                    override fun onFailure(call: Call<memberInfo>, t: Throwable) {
+                    override fun onFailure(call: Call<Void>, t: Throwable) {
                         Log.d(ContentValues.TAG, "실패: $t")
                     }
                 })

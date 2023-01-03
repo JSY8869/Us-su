@@ -12,8 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MemoryDiary"
         android:usesCleartextTraffic="true"
-        android:windowSoftInputMode="stateAlwaysVisible">
-        <activity android:name=".LoginActivity"></activity>
+        android:windowSoftInputMode="stateAlwaysVisible"
+        android:networkSecurityConfig="@xml/network_security_config">
+
         <activity android:name=".GameVersionActivity" />
         <activity android:name=".LocationActivity" />
         <activity android:name=".ResultActivity" />
@@ -23,9 +24,9 @@
         <activity android:name=".CalendarActivity" />
         <activity android:name=".GameActivity" />
         <activity android:name=".TextSizeActivity" />
-        <activity android:name=".SignupActivity" />
         <activity android:name=".HomeActivity" />
-        <activity android:name=".AgreeActivity">
+        <activity android:name=".SignupActivity" />
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

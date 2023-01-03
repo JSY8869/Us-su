@@ -12,7 +12,7 @@ import androidx.core.view.isVisible
 import com.google.gson.GsonBuilder
 import com.ussu.memorydiary.API.diaryAPI
 import com.ussu.memorydiary.API.memberAPI
-import com.ussu.memorydiary.API.memberInfo
+import com.ussu.memorydiary.API.User
 import com.ussu.memorydiary.API.questionInfo
 import retrofit2.Call
 import retrofit2.Callback
@@ -60,7 +60,7 @@ class GameActivity : BaseActivity() {
                     var question = response.body()!!.question
                     var getAnswer = response.body()!!.answer
                     var score = response.body()!!.score
-                    var score_ox = response.body()!!.score_ox1
+                    var score_ox = response.body()!!.isPlayed1
                     var btnAnswer = findViewById<Button>(R.id.btnCheckAnswer)
 
                     if (score_ox == 1) {
@@ -96,17 +96,17 @@ class GameActivity : BaseActivity() {
                                     .build()
 
                                 val api = retrofit.create(memberAPI::class.java)
-                                val callSaveScore = api.saveScore(memberInfo("$id", "0", score, "$date"))
+                                val callSaveScore = api.saveScore(User("$id", "0"))
 
-                                callSaveScore.enqueue(object : Callback<memberInfo> {
-                                    override fun onResponse(call: Call<memberInfo>, response: Response<memberInfo>) {
+                                callSaveScore.enqueue(object : Callback<User> {
+                                    override fun onResponse(call: Call<User>, response: Response<User>) {
                                         btnAnswer.isVisible = false
                                         var intent = Intent(this@GameActivity, ResultActivity::class.java)
                                         intent.putExtra("id", id)
                                         intent.putExtra("score", score)
                                         startActivity(intent)
                                     }
-                                    override fun onFailure(call: Call<memberInfo>, t: Throwable) {
+                                    override fun onFailure(call: Call<User>, t: Throwable) {
                                         Log.d(ContentValues.TAG, "실패: $t")
                                     }
                                 })

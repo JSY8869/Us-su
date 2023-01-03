@@ -53,35 +53,35 @@
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:textColorHint="@color/black"
-                android:textSize="?attr/mainTextSize"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^*"
                 android:hint="비밀번호를 입력하세요"
-
                 android:inputType="textPassword"
-                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"/>
+
+                android:textColorHint="@color/black"
+                android:textSize="?attr/mainTextSize" />
 
             <Button
                 android:id="@+id/button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
+                android:backgroundTint="#7b9acc"
                 android:onClick="clickLogin"
                 android:padding="16dp"
                 android:text="로그인"
                 android:textColor="@color/white"
-                android:backgroundTint="#7b9acc"
-                android:textSize="?attr/mainTextSize"/>
+                android:textSize="?attr/mainTextSize" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:padding="16dp"
+                android:backgroundTint="#7b9acc"
                 android:onClick="goSignup"
+                android:padding="16dp"
                 android:text="회원가입"
                 android:textColor="@color/white"
-                android:backgroundTint="#7b9acc"
-                android:textSize="?attr/mainTextSize"/>
+                android:textSize="?attr/mainTextSize" />
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
