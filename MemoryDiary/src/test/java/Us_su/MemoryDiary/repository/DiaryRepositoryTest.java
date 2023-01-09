@@ -3,6 +3,8 @@ package Us_su.MemoryDiary.repository;
 import Us_su.MemoryDiary.domain.Diary;
 import Us_su.MemoryDiary.domain.RoleType;
 import Us_su.MemoryDiary.domain.User;
+import Us_su.MemoryDiary.repository.diary.DiaryJpaRepository;
+import Us_su.MemoryDiary.repository.user.UserJpaRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,7 +14,6 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
-import java.util.NoSuchElementException;
 
 @SpringBootTest
 @Transactional
@@ -20,9 +21,9 @@ import java.util.NoSuchElementException;
 class DiaryRepositoryTest {
 
     @Autowired
-    UserRepository userRepository;
+    UserJpaRepository userRepository;
     @Autowired
-    DiaryRepository diaryRepository;
+    DiaryJpaRepository diaryRepository;
 
     private String testId = "testId12";
     private String testPassword = "testPass12!";

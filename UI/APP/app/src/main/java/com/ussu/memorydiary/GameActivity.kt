@@ -51,7 +51,7 @@ class GameActivity : BaseActivity() {
             .build()
 
         val api = retrofit.create(diaryAPI::class.java)
-        val callGetQuestionInfo = api.getAnswer(questionInfo("$id", "$date", "0", "0", "0", 0, 100, 100))
+        val callGetQuestionInfo = api.getAnswer(questionInfo("$id", "$date")
 
         callGetQuestionInfo.enqueue(object : Callback<questionInfo> {
             override fun onResponse(call: Call<questionInfo>, response: Response<questionInfo>) {

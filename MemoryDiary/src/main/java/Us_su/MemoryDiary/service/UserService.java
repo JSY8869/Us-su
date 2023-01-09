@@ -2,11 +2,9 @@ package Us_su.MemoryDiary.service;
 
 import Us_su.MemoryDiary.domain.User;
 import Us_su.MemoryDiary.dto.RegisterForm;
-import Us_su.MemoryDiary.repository.UserRepository;
-import jakarta.persistence.NoResultException;
+import Us_su.MemoryDiary.repository.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,11 +14,10 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserService {
 
     private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder;
 
     @Transactional
     public void createUser(RegisterForm form){
-        userRepository.save(form.toUser(passwordEncoder));
+        userRepository.save(form);
     }
 
     public Boolean isDuplicateUser(String identifier){
@@ -28,6 +25,6 @@ public class UserService {
     }
 
     public User findByIdentifier(String identifier) {
-        return userRepository.findByIdentifier(identifier).orElseThrow(() -> new NoResultException());
+        return userRepository.findByIdentifier(identifier);
     }
 }

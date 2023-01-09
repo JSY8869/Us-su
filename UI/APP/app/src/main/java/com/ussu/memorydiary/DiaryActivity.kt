@@ -61,7 +61,7 @@ class DiaryActivity : BaseActivity() {
 
         callReadDiaryText.enqueue(object : Callback<Diary> {
             override fun onResponse(call: Call<Diary>, response: Response<Diary>) {
-                if (response.body()!!.text != "-1") {
+                if (!response.isSuccessful) {
                     var diaryText = response.body()!!.text
                     diaryEditText.setText("$diaryText")
                     diaryEditText.isEnabled = false

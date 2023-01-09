@@ -1,12 +1,11 @@
 package Us_su.MemoryDiary.service;
 
 import Us_su.MemoryDiary.domain.Place;
-import Us_su.MemoryDiary.repository.PlaceRepository;
+import Us_su.MemoryDiary.repository.place.PlaceRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -14,23 +13,17 @@ import java.util.List;
 @Slf4j
 public class PlaceService {
 
-    private PlaceRepository placeRepository;
+    private final PlaceRepository placeRepository;
 
     public void addPlace(List<String> places) {
-        ArrayList<Place> placeList = new ArrayList<>();
-        for (String place : places) {
-            placeList.add(Place.builder()
-                    .place(place)
-                    .build());
-        }
-        placeRepository.saveAll(placeList);
+        placeRepository.SaveAll(places);
     }
 
-    public List<Place> getAllPlace() {
+    public List<String> getAllPlace() {
         return placeRepository.findAll();
     }
 
     public Place getPlace(String keyword) {
-        return placeRepository.findByPlace(keyword).orElseThrow(() -> new IllegalArgumentException());
+        return placeRepository.findByPlace(keyword);
     }
 }

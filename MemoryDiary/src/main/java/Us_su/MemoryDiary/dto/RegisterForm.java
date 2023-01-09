@@ -5,10 +5,14 @@ import Us_su.MemoryDiary.domain.User;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Data
+@RequiredArgsConstructor
 public class RegisterForm {
+
+    private final PasswordEncoder passwordEncoder;
 
     @NotBlank(message = "아이디를 작성해주세요.")
     @Pattern(
@@ -22,7 +26,7 @@ public class RegisterForm {
     )
     private String password;
 
-    public User toUser(PasswordEncoder passwordEncoder) {
+    public User toUser() {
         return User.builder()
                 .role(RoleType.USER)
                 .identifier(identifier)

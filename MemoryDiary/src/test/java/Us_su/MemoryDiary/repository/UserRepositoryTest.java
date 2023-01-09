@@ -2,6 +2,7 @@ package Us_su.MemoryDiary.repository;
 
 import Us_su.MemoryDiary.domain.RoleType;
 import Us_su.MemoryDiary.domain.User;
+import Us_su.MemoryDiary.repository.user.UserJpaRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,10 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Profile;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDate;
 import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @Profile("test")
@@ -21,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class UserRepositoryTest {
 
     @Autowired
-    UserRepository userRepository;
+    UserJpaRepository userRepository;
 
     private String testId = "testId12";
     private String testPassword = "testPass12!";

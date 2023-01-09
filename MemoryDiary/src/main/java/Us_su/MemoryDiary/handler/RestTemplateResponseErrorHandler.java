@@ -8,7 +8,6 @@ import java.io.IOException;
 
 public class RestTemplateResponseErrorHandler implements ResponseErrorHandler {
 
-
     @Override
     public boolean hasError(ClientHttpResponse response) throws IOException {
         return response.getStatusCode() == HttpStatus.BAD_REQUEST

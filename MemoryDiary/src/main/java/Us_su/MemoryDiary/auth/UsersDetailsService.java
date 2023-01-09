@@ -1,7 +1,7 @@
 package Us_su.MemoryDiary.auth;
 
 import Us_su.MemoryDiary.domain.User;
-import Us_su.MemoryDiary.repository.UserRepository;
+import Us_su.MemoryDiary.repository.user.UserJpaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class UsersDetailsService implements UserDetailsService {
 
-    private final UserRepository userRepository;
+    private final UserJpaRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
